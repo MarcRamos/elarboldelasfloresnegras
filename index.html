@@ -12,16 +12,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="scroll-reveal-background">
+        <div class="reveal-image" id="revealImage"></div>
+    </div>
 
     <!-- Navegación Fija con Efecto Cristal -->
     <nav class="navbar">
         <div class="nav-container">
-            <span class="logo">🌑 Flores Negras</span>
             <div class="nav-links">
                 <a href="#home">Inicio</a>
                 <a href="#libros">La Trilogía</a>
-                <a href="#autor">Autor</a>
-                <a href="#contacto">Contacto</a>
+                <a href="#autor" hidden="true">Autor</a>
+                <a href="#contacto" hidden="true">Contacto</a>
             </div>
         </div>
     </nav>
@@ -36,20 +38,18 @@
                 <div style="background:black;border-radius:14px;padding:1.5rem;color:white">
                     <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;opacity:0.85;margin-bottom:0.5rem">
                         <h2>SANT JORDI 2026</h2>
-                        <p>¡Estaré firmando libros!</p>
-                    </div>
-                    <div style="font-family:Fraunces,serif;font-size:clamp(1.25rem,4vw,1.625rem);font-weight:500;margin-bottom:0.35rem;line-height:1.2">
-                        Eixample
+                        <p>Estaré firmando libros en:</p>
                     </div>
                     <div style="font-size:1rem;opacity:0.9;margin-bottom:0.5rem;line-height:1.5">
-                        Passeig de Gracia entre valencia i mallorca
-                    </div>
-                    <div style="font-size:0.9375rem;opacity:0.85;margin-bottom:1rem">
-                        ⏰ <!-- -->12-14h
+                        Passeig de Gracia entre Calle Valencia y Calle Mallorca
                     </div>
                     <a href="https://www.google.com/maps/search/?api=1&amp;query=Passeig%20de%20Gracia%2C%2078" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.625rem 1.25rem;background:white;color:black;border-radius:8px;font-size:0.9375rem;font-weight:700;text-decoration:none">
                         📍 Ver en Google Maps
                     </a>
+                    <div style="font-size:0.9375rem;opacity:0.85;margin-bottom:1rem">
+                        HORARIO: ⏰ 12-14h                        
+                    </div>
+                    
                 </div>
             </div>
             <a href="#libros" class="cta-button">Explorar la Oscuridad</a>
@@ -63,6 +63,9 @@
             
             <!-- LIBRO 1 -->
             <div class="book-row reverse">
+                <div class="book-cover-placeholder">
+                    <img src="El-misterio-del-Bosque-Gris.webp" alt="Portada del primer libro"/>
+                </div>
                 <div class="book-info">
                     <span class="book-number">Libro I</span>
                     <h3>El Misterio del Bosque Gris</h3>
@@ -86,20 +89,19 @@
                         </div>
                         <button aria-expanded="false" aria-controls="more-1" class="read-more-btn"><span class="text">Leer más</span></button>
                     </div>
-                    <div class="book-cover-placeholder">
-                        <img src="El-misterio-del-Bosque-Gris.webp"/>
-                    </div>
-
+                   
                     <div class="book-meta">
                         <span>⭐⭐⭐⭐☆ 4.5/5</span>
                         <a href="http://comicstores.es/libro/el-arbol-de-las-flores-negras-i-el-misterio-del-bosque-gris_175421" class="buy-link" target="_blank">Comprar</a>
                     </div>
                 </div>
-                
             </div>
 
             <!-- LIBRO 2 -->
             <div class="book-row">
+                <div class="book-cover-placeholder">
+                    <img src="Las-sombras-del-mal.webp" alt="Portada del segundo libro"/>
+                </div>
                 <div class="book-info">
                     <span class="book-number">Libro II</span>
                     <h3>Las Sombras del Mal</h3>
@@ -122,20 +124,19 @@
                         </div>
                         <button aria-expanded="false" aria-controls="more-2" class="read-more-btn"><span class="text">Leer más</span></button>
                     </div>
-                    <div class="book-cover-placeholder">
-                        <img src="Las-sombras-del-mal.webp"/>
-                    </div>
-
+                    
                     <div class="book-meta">
                         <span>⭐⭐⭐⭐⭐ 5/5</span>
                         <a href="https://comicstores.es/libro/las-sombras-del-mal_195900" class="buy-link" target="_blank">Comprar</a>
                     </div>
-                </div>
-                
+                </div>                
             </div>
 
             <!-- LIBRO 3 -->
-            <div class="book-row reverse">
+            <div class="book-row reverse">                
+                <div class="book-cover-placeholder">
+                    <img src="Ser-fuego-de-dragon.webp" alt="Portada del tercer libro"/>
+                </div>
                 <div class="book-info">
                     <span class="book-number">Libro III</span>
                     <h3>Ser Fuego de Dragón</h3>
@@ -161,13 +162,10 @@
                         </div>
                         <button aria-expanded="false" aria-controls="more-3" class="read-more-btn"><span class="text">Leer más</span></button>
                     </div>
-                    <div class="book-cover-placeholder">
-                        <img src="Ser-fuego-de-dragon.webp"/>
-                    </div>
                     <div class="book-meta">
                         <span>⭐⭐⭐⭐⭐ 5/5 (Final de saga)</span>
                         <a href="https://comicstores.es/libro/el-arbol-de-las-flores-negras-iii-ser-fuego-de-dragon_552747" class="buy-link" target="_blank">Comprar</a>
-                    </div>
+                    </div>                    
                 </div>
                 
             </div>

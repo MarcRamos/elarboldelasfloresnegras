@@ -9,6 +9,72 @@
     --pure-white: #F3F3F3;      /* Texto principal */
 }
 
+/* ===== EFECTO SCROLL REVEAL - IMAGEN DE FONDO ===== */
+.scroll-reveal-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -2;                    /* Detrás de todo */
+    pointer-events: none;           /* No interfiere con clicks */
+}
+
+.reveal-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('tu-imagen-de-fondo.jpg'); /* CAMBIA ESTA RUTA */
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    
+    /* La magia: empieza invisible (recortada desde abajo) */
+    clip-path: inset(100% 0 0 0);
+    transition: clip-path 0.1s ease-out;
+    
+    /* Efecto de niebla/oscurecimiento para que no distraiga del texto */
+    opacity: 0.4;
+    filter: brightness(0.6) sepia(0.3);
+}
+
+/* Overlay oscuro para mantener legibilidad del texto */
+.scroll-reveal-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 0%, var(--deep-black) 90%);
+    z-index: 1;
+}
+
+/* Aseguramos que el contenido principal esté por encima */
+nav, section, footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* Ajuste para que el hero tenga fondo semi-transparente */
+.hero {
+    background: transparent !important;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(26, 26, 46, 0.7) 0%, rgba(10, 10, 15, 0.95) 100%);
+    z-index: -1;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -179,20 +245,65 @@ section {
     margin: 20px auto 0;
 }
 
-/* LIBROS (Rows) */
+/* ===== LIBROS (ROWS) - VERSIÓN DEFINITIVA ===== */
 .book-row {
     display: flex;
-    align-items: top;
+    flex-direction: row;
+    align-items: center;
     gap: 60px;
     margin-bottom: 100px;
 }
 
+/* Clave: reverse invierte el orden VISUAL, no el DOM */
 .book-row.reverse {
     flex-direction: row-reverse;
 }
 
 .book-info {
     flex: 1;
+    min-width: 0;
+}
+
+.book-cover-placeholder {
+    flex: 0 0 300px;
+    width: 300px;
+    height: 450px;
+    position: relative;
+    background: linear-gradient(145deg, #1a1a24, #0d0d14);
+    border: 3px solid var(--dragon-fire);
+    box-shadow: 20px 20px 0px rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--smoke-gray);
+    font-family: 'Cinzel', serif;
+    text-transform: uppercase;
+    padding: 0;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.book-cover-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.book-cover-placeholder span {
+    position: absolute;
+    padding: 20px;
+    z-index: 1;
+}
+
+/* Hover SOLO en pantallas grandes (se deshabilita en móvil) */
+@media (min-width: 769px) {
+    .book-cover-placeholder:hover {
+        transform: translateY(-10px);
+        border-color: var(--blood-flower);
+    }
 }
 
 .book-number {
@@ -223,44 +334,6 @@ section {
     display: flex;
     align-items: center;
     gap: 30px;
-}
-
-.buy-link {
-    color: var(--dragon-fire);
-    text-decoration: none;
-    border: 1px solid var(--dragon-fire);
-    padding: 8px 20px;
-    border-radius: 30px;
-    font-size: 0.9rem;
-    transition: 0.3s;
-}
-
-.buy-link:hover {
-    background: var(--dragon-fire);
-    color: black;
-}
-
-.book-cover-placeholder {
-    flex: 0 0 300px;
-    width: 300px;          /* Ancho fijo */
-    height: 450px;         /* Alto fijo */
-    position: relative;
-    
-    /* Estética de borde (se mantiene visible) */
-    background: linear-gradient(145deg, #1a1a24, #0d0d14);
-    border: 3px solid var(--dragon-fire); /* Borde Naranja Dragón */
-    box-shadow: 20px 20px 0px rgba(0,0,0,0.5);
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--smoke-gray);
-    font-family: 'Cinzel', serif;
-    text-transform: uppercase;
-    padding: 0;             /* Quitamos padding para que la imagen ocupe todo */
-    overflow: hidden;       /* CLAVE: Recorta lo que sobresalga */
-    transition: transform 0.3s;
 }
 
 /* Estilo para la imagen DENTRO del placeholder */
@@ -330,6 +403,21 @@ section {
 
 .read-more-btn:active {
     letter-spacing: 4px;
+}
+
+.buy-link {
+    color: var(--dragon-fire);
+    text-decoration: none;
+    border: 1px solid var(--dragon-fire);
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.buy-link:hover {
+    background: var(--dragon-fire);
+    color: black;
 }
 
 /* SECCIÓN AUTOR */
@@ -439,9 +527,23 @@ footer {
     color: var(--blood-flower);
 }
 
-/* RESPONSIVE - VERSIÓN MEJORADA PARA MÓVILES */
+/* RESPONSIVE - SOLO PARA MÓVILES (NO AFECTA A ESCRITORIO) */
 @media (max-width: 768px) {
-    /* Títulos más pequeños */
+    nav { 
+        visibility: hidden;
+    }
+    /* Forzar columna en móvil SIN afectar al escritorio */
+    .book-row, 
+    .book-row.reverse {
+        flex-direction: column !important; /* Prioridad para móvil */
+        gap: 30px;
+        margin-bottom: 60px;
+    }
+    .book-row {
+        flex-direction: column-reverse; /* EXPLÍCITO: Fila horizontal invertida */
+    }
+    
+    /* Resto de estilos móviles (sin cambios) */
     .main-title {
         font-size: 2.5rem;
         line-height: 1.3;
@@ -452,7 +554,6 @@ footer {
         margin-bottom: 40px;
     }
     
-    /* Navegación compacta */
     .nav-container {
         flex-direction: column;
         gap: 10px;
@@ -464,47 +565,28 @@ footer {
         font-size: 0.75rem;
     }
     
-    /* Filas de libros - Apiladas verticalmente */
-    .book-row, 
-    .book-row.reverse {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
-        margin-bottom: 60px;
-    }
-    
-    /* CONTENEDOR DE PORTADA - CLAVE PARA MÓVIL */
     .book-cover-placeholder {
         flex: 0 0 auto;
         width: 100%;
-        max-width: 280px;      /* Ancho máximo para que no sea enorme */
+        max-width: 280px;
         height: auto;
-        aspect-ratio: 2 / 3;   /* Proporción fija 2:3 (estándar de portadas de libro) */
-        margin: 0 auto;        /* Centrar horizontalmente */
-        box-shadow: 10px 10px 0px rgba(0,0,0,0.5); /* Sombra más pequeña */
+        aspect-ratio: 2 / 3;
+        margin: 0 auto;
+        box-shadow: 10px 10px 0px rgba(0,0,0,0.5);
     }
     
-    /* Imagen dentro del placeholder - Mantiene proporción */
     .book-cover-placeholder img {
         width: 100%;
         height: 100%;
-        object-fit: cover;      /* Cubre todo el contenedor */
+        object-fit: cover;
         object-position: center;
     }
-
-    /* Efecto hover para que se vea dinámico */
-    .book-cover-placeholder:hover {
-        transform: translateY(0px);
-        border-color: black; /* Cambia a rojo/morado al pasar mouse */
-    }
     
-    /* Ajustes para el texto del placeholder (si no hay imagen) */
     .book-cover-placeholder span {
         font-size: 0.8rem;
         padding: 15px;
     }
     
-    /* Información del libro centrada */
     .book-info {
         width: 100%;
     }
@@ -519,7 +601,6 @@ footer {
         display: block;
     }
     
-    /* Sinopsis en móvil */
     .book-sinopsis-short {
         text-align: left;
         font-size: 1rem;
@@ -529,15 +610,17 @@ footer {
         text-align: left;
     }
     
-    /* Metadatos centrados */
     .book-meta {
         flex-direction: column;
         align-items: center;
         gap: 15px;
-        margin-top: 1em;
     }
     
-    /* Sección Autor */
+    .read-more-btn {
+        display: block;
+        margin: 15px auto 1em;
+    }
+    
     .autor-container {
         flex-direction: column;
         text-align: center;
@@ -566,7 +649,6 @@ footer {
         gap: 20px;
     }
     
-    /* Hero section más compacta */
     .hero {
         min-height: 600px;
         padding: 80px 20px;
@@ -591,7 +673,6 @@ footer {
         font-size: 1rem;
     }
     
-    /* Formulario de contacto */
     .form-placeholder {
         padding: 20px 15px;
     }
@@ -606,7 +687,6 @@ footer {
         width: 100%;
     }
     
-    /* Footer */
     footer {
         padding: 30px 20px;
     }
