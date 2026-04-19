@@ -197,7 +197,7 @@ section {
 /* LIBROS (Rows) */
 .book-row {
     display: flex;
-    align-items: center;
+    align-items: top;
     gap: 60px;
     margin-bottom: 100px;
 }
@@ -275,6 +275,51 @@ section {
 .book-cover-placeholder:hover {
     transform: translateY(-10px);
     border-color: var(--dragon-fire);
+}
+
+.read-more-btn {
+    background: rgba(102, 0, 51, 0.1);
+    color: var(--pure-white);
+    border: 1px solid var(--blood-flower);
+    padding: 10px 28px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+    border-radius: 0; /* Bordes afilados, estilo gótico */
+    margin-top: 10px;
+    backdrop-filter: blur(5px);
+    position: relative;
+    z-index: 1;
+}
+
+.read-more-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: var(--blood-flower);
+    transition: height 0.3s ease;
+    z-index: -1;
+}
+
+.read-more-btn:hover {
+    color: var(--pure-white);
+    border-color: var(--blood-flower);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.read-more-btn:hover::after {
+    height: 100%;
+}
+
+.read-more-btn:active {
+    letter-spacing: 4px;
 }
 
 /* SECCIÓN AUTOR */
