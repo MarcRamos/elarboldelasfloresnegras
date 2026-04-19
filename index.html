@@ -36,17 +36,17 @@
             <p class="tagline">Trilogía de fantasía con mucha acción y misterio.</p>
             <div class="hero-description" style="margin-bottom:2rem;display:flex;flex-direction:column;gap:0.875rem">
                 <div style="background:black;border-radius:14px;padding:1.5rem;color:white">
-                    <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;opacity:0.85;margin-bottom:0.5rem">
+                    <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;">
                         <h2>SANT JORDI 2026</h2>
                         <p>Estaré firmando libros en:</p>
                     </div>
                     <div style="font-size:1rem;opacity:0.9;margin-bottom:0.5rem;line-height:1.5">
                         Passeig de Gracia entre Calle Valencia y Calle Mallorca
                     </div>
-                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Passeig%20de%20Gracia%2C%2078" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.625rem 1.25rem;background:white;color:black;border-radius:8px;font-size:0.9375rem;font-weight:700;text-decoration:none">
+                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Passeig%20de%20Gracia%2C%2078" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.625rem 1.25rem;margin:0.625rem 1.25rem;background:white;color:black;border-radius:8px;font-size:0.9375rem;font-weight:700;text-decoration:none">
                         📍 Ver en Google Maps
                     </a>
-                    <div style="font-size:0.9375rem;opacity:0.85;margin-bottom:1rem">
+                    <div style="font-size:0.9375rem;opacity:0.85;margin-top:1rem">
                         HORARIO: ⏰ 12-14h                        
                     </div>
                     
@@ -263,5 +263,64 @@
             }
         });
     </script>
+    
+    <script>
+    // ===== EFECTO SCROLL REVEAL =====
+    document.addEventListener('DOMContentLoaded', function() {
+        const revealImage = document.getElementById('revealImage');
+        
+        function updateReveal() {
+            // Calcular el porcentaje de scroll
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            
+            // Limitar entre 0 y 100
+            const clampedPercent = Math.min(100, Math.max(0, scrollPercent));
+            
+            // La imagen se revela desde arriba hacia abajo
+            // Al 0% scroll: inset(100% 0 0 0) = completamente oculta
+            // Al 100% scroll: inset(0% 0 0 0) = completamente visible
+            const revealAmount = 100 - clampedPercent;
+            
+            revealImage.style.clipPath = `inset(${revealAmount}% 0 0 0)`;
+        }
+        
+        // Actualizar al hacer scroll
+        window.addEventListener('scroll', updateReveal);
+        
+        // Actualizar al cargar la página
+        updateReveal();
+        
+        // Actualizar al redimensionar ventana
+        window.addEventListener('resize', updateReveal);
+    });
+    
+    // Mantener el resto de tus scripts (año, leer más, etc.)
+    document.addEventListener('DOMContentLoaded', function() {
+        // Año actual en footer
+        const yearSpan = document.getElementById('current-year');
+        if (yearSpan) {
+            yearSpan.textContent = new Date().getFullYear();
+        }
+        
+        // Botones "Leer más"
+        const buttons = document.querySelectorAll('.read-more-btn');
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const fullTextDiv = document.getElementById(targetId);
+                
+                fullTextDiv.classList.toggle('visible');
+                
+                if (fullTextDiv.classList.contains('visible')) {
+                    this.innerHTML = 'Leer menos ▲';
+                } else {
+                    this.innerHTML = 'Leer más ▼';
+                }
+            });
+        });
+    });
+</script>
 </body>
 </html>
