@@ -257,10 +257,15 @@ section {
 
 .book-cover-placeholder {
     flex: 0 0 300px;
-    height: 450px;
+    width: 300px;          /* Ancho fijo */
+    height: 450px;         /* Alto fijo */
+    position: relative;
+    
+    /* Estética de borde (se mantiene visible) */
     background: linear-gradient(145deg, #1a1a24, #0d0d14);
-    border: 2px solid var(--mystic-purple);
+    border: 3px solid var(--dragon-fire); /* Borde Naranja Dragón */
     box-shadow: 20px 20px 0px rgba(0,0,0,0.5);
+    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -268,13 +273,32 @@ section {
     color: var(--smoke-gray);
     font-family: 'Cinzel', serif;
     text-transform: uppercase;
-    padding: 20px;
+    padding: 0;             /* Quitamos padding para que la imagen ocupe todo */
+    overflow: hidden;       /* CLAVE: Recorta lo que sobresalga */
     transition: transform 0.3s;
 }
 
+/* Estilo para la imagen DENTRO del placeholder */
+.book-cover-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      /* Ajusta la imagen recortando los bordes sobrantes */
+    object-position: center;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Efecto hover para que se vea dinámico */
 .book-cover-placeholder:hover {
     transform: translateY(-10px);
-    border-color: var(--dragon-fire);
+    border-color: var(--blood-flower); /* Cambia a rojo/morado al pasar mouse */
+}
+
+/* Texto de placeholder (solo visible si NO hay imagen) */
+.book-cover-placeholder span {
+    position: absolute;
+    padding: 20px;
+    z-index: 1;
 }
 
 .read-more-btn {
