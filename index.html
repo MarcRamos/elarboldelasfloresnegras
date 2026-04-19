@@ -42,7 +42,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN LOS LIBROS (TRILOGÍA) -->
+   <!-- SECCIÓN LOS LIBROS (TRILOGÍA) - VERSIÓN CON "LEER MÁS" -->
     <section id="libros" class="books-section">
         <div class="container">
             <h2 class="section-title">La Trilogía Completa</h2>
@@ -52,11 +52,21 @@
                 <div class="book-info">
                     <span class="book-number">Libro I</span>
                     <h3>El Misterio del Bosque Gris</h3>
-                    <p class="book-sinopsis">
-                        <strong>Sinopsis:</strong> [TEXTO DE EJEMPLO PARA REEMPLAZAR] Cuando los aldeanos de Valdria empiezan a desaparecer en la niebla perpetua, Kael descubre que los árboles no solo susurran... recuerdan. Adéntrate donde la luz no se atreve a entrar.
-                    </p>
+                    
+                    <div class="sinopsis-wrapper">
+                        <p class="book-sinopsis-short">
+                            Cuando los aldeanos de Valdria empiezan a desaparecer en la niebla perpetua, Kael descubre que los árboles no solo susurran... recuerdan.
+                        </p>
+                        <div class="book-sinopsis-full" id="sinopsis1">
+                            <p>
+                                [TEXTO COMPLETO AQUÍ - LIBRO 1] La niebla del Bosque Gris no es natural. Sepulta los recuerdos de quienes se adentran y los convierte en sombras errantes. Kael, un joven leñador con un don oculto, deberá internarse en lo profundo para encontrar a su hermana desaparecida. Pero el bosque tiene hambre, y el árbol central de flores negras está a punto de florecer con un poder que podría destruir el reino. ¿Logrará Kael resolver el misterio antes de olvidar su propio nombre?
+                            </p>
+                        </div>
+                        <button class="read-more-btn" data-target="sinopsis1">Leer más ▼</button>
+                    </div>
+
                     <div class="book-meta">
-                        <span>⭐⭐⭐⭐⭐ [CALIFICACIÓN]</span>
+                        <span>⭐⭐⭐⭐☆ 4.5/5</span>
                         <a href="#" class="buy-link">Comprar / Leer Muestra</a>
                     </div>
                 </div>
@@ -73,11 +83,21 @@
                 <div class="book-info">
                     <span class="book-number">Libro II</span>
                     <h3>Las Sombras del Mal</h3>
-                    <p class="book-sinopsis">
-                        <strong>Sinopsis:</strong> [TEXTO DE EJEMPLO PARA REEMPLAZAR] La huida del Bosque Gris fue solo el principio. Ahora, las sombras han cobrado forma física y buscan venganza. Kael deberá forjar alianzas con enemigos de antaño para sobrevivir a la noche eterna.
-                    </p>
+                    
+                    <div class="sinopsis-wrapper">
+                        <p class="book-sinopsis-short">
+                            La huida del Bosque Gris fue solo el principio. Ahora, las sombras han cobrado forma física y buscan venganza.
+                        </p>
+                        <div class="book-sinopsis-full" id="sinopsis2">
+                            <p>
+                                [TEXTO COMPLETO AQUÍ - LIBRO 2] Tras escapar del Bosque Gris, Kael cree haber dejado atrás el horror. Pero algo le ha seguido. Las sombras no son solo ausencia de luz, son criaturas con voluntad y rencor. Ahora acechan las ciudades, corrompiendo a los vivos y resucitando a los muertos. Kael deberá forjar alianzas incómodas con los Caballeros del Ocaso y descifrar los pergaminos prohibidos de la Orden de la Llama antes de que el "Mal" se extienda como una plaga imparable.
+                            </p>
+                        </div>
+                        <button class="read-more-btn" data-target="sinopsis2">Leer más ▼</button>
+                    </div>
+
                     <div class="book-meta">
-                        <span>⭐⭐⭐⭐⭐ [CALIFICACIÓN]</span>
+                        <span>⭐⭐⭐⭐⭐ 5/5</span>
                         <a href="#" class="buy-link">Comprar / Leer Muestra</a>
                     </div>
                 </div>
@@ -88,11 +108,21 @@
                 <div class="book-info">
                     <span class="book-number">Libro III</span>
                     <h3>Ser Fuego de Dragón</h3>
-                    <p class="book-sinopsis">
-                        <strong>Sinopsis:</strong> [TEXTO DE EJEMPLO PARA REEMPLAZAR] La batalla final no es contra la oscuridad, sino contra la extinción de la magia misma. Para salvar su mundo, Kael tendrá que despertar la última llama... o convertirse en ella. Un desenlace épico que te dejará sin aliento.
-                    </p>
+                    
+                    <div class="sinopsis-wrapper">
+                        <p class="book-sinopsis-short">
+                            La batalla final no es contra la oscuridad, sino contra la extinción de la magia misma.
+                        </p>
+                        <div class="book-sinopsis-full" id="sinopsis3">
+                            <p>
+                                [TEXTO COMPLETO AQUÍ - LIBRO 3] El mundo se apaga. El Árbol de las Flores Negras ha consumido casi toda la esencia mágica del reino, dejando solo cenizas y desesperación. Kael descubre la verdad oculta en su linaje: lleva la sangre de los antiguos dragones, pero para despertar ese poder debe sacrificar su humanidad. Enfrentado a la elección definitiva, deberá decidir si abraza el fuego interno y se convierte en la última llama de esperanza o si permite que el frío eterno de las flores negras lo cubra todo. El desenlace épico redefine el significado de "Ser Fuego de Dragón".
+                            </p>
+                        </div>
+                        <button class="read-more-btn" data-target="sinopsis3">Leer más ▼</button>
+                    </div>
+
                     <div class="book-meta">
-                        <span>⭐⭐⭐⭐⭐ [CALIFICACIÓN]</span>
+                        <span>⭐⭐⭐⭐⭐ 5/5 (Final de saga)</span>
                         <a href="#" class="buy-link">Comprar / Leer Muestra</a>
                     </div>
                 </div>
@@ -143,5 +173,28 @@
         </div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.read-more-btn');
+            
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Obtener el ID del target desde el atributo data-target
+                    const targetId = this.getAttribute('data-target');
+                    const fullTextDiv = document.getElementById(targetId);
+                    
+                    // Alternar la clase 'visible' en el div del texto completo
+                    fullTextDiv.classList.toggle('visible');
+                    
+                    // Cambiar el texto y la flecha del botón
+                    if (fullTextDiv.classList.contains('visible')) {
+                        this.innerHTML = 'Leer menos ▲';
+                    } else {
+                        this.innerHTML = 'Leer más ▼';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
