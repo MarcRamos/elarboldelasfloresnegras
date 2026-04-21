@@ -330,6 +330,67 @@ section {
     border-radius: 4px;
 }
 
+.video-caption{
+    color: var(--pure-white);
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: center;
+}
+.video-thumbnail-link {
+    text-decoration: none;
+    display: block;
+}
+
+.video-thumbnail {
+    position: relative;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--mystic-purple);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.video-thumbnail img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.play-button-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 68px;
+    height: 48px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--dragon-fire);
+    transition: all 0.3s ease;
+}
+
+.play-icon {
+    color: var(--dragon-fire);
+    font-size: 24px;
+}
+
+.video-thumbnail:hover {
+    border-color: var(--dragon-fire);
+    box-shadow: 0 10px 25px rgba(210, 105, 30, 0.3);
+}
+
+.video-thumbnail:hover .play-button-overlay {
+    background: var(--dragon-fire);
+}
+
+.video-thumbnail:hover .play-icon {
+    color: var(--deep-black);
+}
+
 .book-meta {
     display: flex;
     align-items: center;
@@ -418,6 +479,55 @@ section {
 .buy-link:hover {
     background: var(--dragon-fire);
     color: black;
+}
+
+/* ===== LÍNEA DIVISORIA ENTRE LIBROS ===== */
+.book-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    opacity: 0.7;
+}
+
+.divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--mystic-purple) 20%,
+        var(--blood-flower) 50%,
+        var(--mystic-purple) 80%,
+        transparent
+    );
+}
+
+.divider-symbol {
+    color: var(--dragon-fire);
+    font-size: 1.5rem;
+    text-shadow: 0 0 10px var(--dragon-fire);
+    animation: pulse-symbol 3s infinite;
+}
+
+/* Animación sutil del símbolo */
+@keyframes pulse-symbol {
+    0%, 100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+        text-shadow: 0 0 15px var(--blood-flower);
+    }
+}
+
+/* En móvil, más compacto */
+@media (max-width: 768px) {
+
 }
 
 /* SECCIÓN AUTOR */
@@ -609,6 +719,14 @@ footer {
     .book-sinopsis-full {
         text-align: left;
     }
+
+    .book-video-wrapper {
+        margin: 20px 0 15px;
+    }
+
+    .video-caption {
+        font-size: 0.75rem;
+    }
     
     .book-meta {
         flex-direction: column;
@@ -666,6 +784,16 @@ footer {
     .hero-description {
         font-size: 0.95rem;
         padding: 12px;
+    }
+
+    .book-divider {
+        gap: 15px;
+        margin: 10px auto 30px;
+        max-width: 90%;
+    }
+    
+    .divider-symbol {
+        font-size: 1.2rem;
     }
     
     .cta-button {
