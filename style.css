@@ -173,6 +173,107 @@ h1, h2, h3, .logo, .book-number {
     max-width: 800px;
     padding: 20px;
 }
+/* ===== BLOQUE SANT JORDI 2026 ===== */
+.sant-jordi-banner {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background: rgba(31, 40, 51, 0.6);
+    border: 1px solid var(--mystic-purple);
+    border-radius: 12px;
+    padding: 25px;
+    margin: 25px auto 35px;
+    max-width: 750px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Brillo decorativo sutil */
+.sant-jordi-banner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle at center,
+        rgba(210, 105, 30, 0.05) 0%,
+        transparent 60%
+    );
+    pointer-events: none;
+}
+
+.sant-jordi-banner:hover {
+    border-color: var(--dragon-fire);
+    box-shadow: 0 8px 32px rgba(210, 105, 30, 0.15);
+    transform: translateY(-3px);
+}
+
+/* Contenedor de la imagen */
+.sj-image-container {
+    flex: 0 0 180px;
+    height: 180px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid var(--blood-flower);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 1;
+}
+
+.sj-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.sant-jordi-banner:hover .sj-image {
+    transform: scale(1.05);
+}
+
+/* Contenedor del texto */
+.sj-content {
+    flex: 1;
+    text-align: left;
+    z-index: 1;
+}
+
+.sj-heading {
+    font-family: 'Cinzel', serif;
+    font-size: 1.6rem;
+    color: var(--dragon-fire);
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+}
+
+.sj-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--blood-flower);
+    transition: width 0.3s ease;
+}
+
+.sant-jordi-banner:hover .sj-heading::after {
+    width: 100%;
+}
+
+.sj-text {
+    font-size: 0.85rem;
+}
+
 
 .main-title {
     font-size: 4.5rem;
@@ -525,11 +626,6 @@ section {
     }
 }
 
-/* En móvil, más compacto */
-@media (max-width: 768px) {
-
-}
-
 /* SECCIÓN AUTOR */
 .autor-section {
     background: var(--dark-slate);
@@ -779,6 +875,40 @@ footer {
     
     .tagline {
         font-size: 1.1rem;
+    }
+
+    .sant-jordi-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 15px;
+        gap: 20px;
+        margin: 20px auto 30px;
+    }
+    
+    .sj-image-container {
+        flex: 0 0 140px;
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;  /* Circular en móvil */
+        margin: 0 auto;
+    }
+    
+    .sj-content {
+        text-align: center;
+    }
+    
+    .sj-heading {
+        font-size: 1.3rem;
+    }
+    
+    .sj-heading::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .sj-text {
+        font-size: 0.9rem;
+        text-align: center;
     }
     
     .hero-description {
