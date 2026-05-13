@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="favicon_io/favicon.ico">
     <title>El Árbol de las Flores Negras - Trilogía de Fantasía Oscura</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Fuente para dar ese toque misterioso (opcional) -->
+    <link rel="stylesheet" href="style/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
@@ -16,333 +15,248 @@
         <div class="reveal-image" id="revealImage"></div>
     </div>
 
-    <!-- Navegación Fija con Efecto Cristal -->
+    <!-- Navegación -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-links">
                 <a href="#home">Inicio</a>
                 <a href="#libros">La Trilogía</a>
-                <a href="#autor" hidden="true">Autor</a>
-                <a href="#contacto" hidden="true">Contacto</a>
+                <a href="#disco">Disco</a>
+                <a href="#essencia">La Quinta Essència</a>
             </div>
         </div>
     </nav>
 
-    <!-- SECCIÓN HERO (Principal) -->
+    <!-- HERO -->
     <section id="home" class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1 class="main-title">El Árbol de las <span class="blood-text">Flores Negras</span></h1>
             <p class="tagline">Trilogía de fantasía con mucha acción y misterio.</p>
-            <div class="hero-description" style="margin-bottom:2rem;display:flex;flex-direction:column;gap:0.875rem">
-                <!-- BLOQUE SANT JORDI 2026 -->
-                <div class="sant-jordi-banner">
-                    <div class="sj-image-container">
-                        <img src="marc+sj26.webp" alt="Sant Jordi 2026 - Firma de libros" class="sj-image">
-                    </div>
-                    <div class="sj-content">
-                        <h3 class="sj-heading">🌹 Sant Jordi 2026</h3>
-                        <p class="sj-text">
-                            Muchas gracias a todas las personas que os acercasteis al stand durante la Diada de Sant Jordi. 
-                            <br>A pesar del calor sofocante que nos acompañó, vuestra energía y entusiasmo hicieron que valieran la pena. 
-                            Gracias por dedicarme unos minutos y hacer que el día fuera aún más especial.
-                        </p>
-                    </div>
+
+            <!-- BLOQUE DESTACADO -->
+            <div class="sant-jordi-banner">
+                <div class="sj-image-container" hidden>
+                    <img src="marc+sj26.webp" alt="Sant Jordi 2026 - Firma de libros" class="sj-image">
+                </div>
+                <div class="sj-content">
+                    <h3 class="sj-heading">Nuevos blogs ✍️</h3>
+                    <p class="sj-text">
+                        En breve estrenaré unos blogs en los que explicaré el proceso de dos nuevos proyectos
+                        enmarcados dentro del universo del Árbol de las Flores Negras: un disco de música y
+                        un juego de mesa. Muy pronto más información.
+                    </p>
                 </div>
             </div>
+
             <a href="#libros" class="cta-button">Explorar la Oscuridad</a>
         </div>
     </section>
 
-   <!-- SECCIÓN LOS LIBROS (TRILOGÍA) - VERSIÓN CON "LEER MÁS" -->
+    <!-- SECCIÓN LIBROS (SLIDESHOW) -->
     <section id="libros" class="books-section">
         <div class="container">
             <h2 class="section-title">La Trilogía Completa</h2>
             
-            <!-- LIBRO 1 -->
-            <div class="book-row reverse">
-                <div class="book-cover-placeholder">
-                    <img src="El-misterio-del-Bosque-Gris.webp" alt="Portada del primer libro"/>
-                </div>
-                <div class="book-info">
-                    <span class="book-number">Libro I</span>
-                    <h3>El Misterio del Bosque Gris</h3>
-                    
-                    <div class="sinopsis-wrapper">
-                        <p class="book-sinopsis-short">
-                            En una misión de la que depende la suerte del mundo, Donald y su compañero deberán llegar hasta el otro lado de la región de Tartamian para rescatar 
-                            al último dragón azul. El mago Haigol les guiará para que Donald descubra el verdadero poder que reside en su interior.
-                        </p>
-                         <div id="more-1" class="fulltext" hidden="true">
-                            <p>
-                               Donald Talonne es un joven campesino que vive en la ciudad de Forbbings, situada en las faldas de los Montes Cercanos. 
-                               Junto con su amigo Ron, ha descubierto en el Bosque Gris un enigmático cofre que cambiará su vida por completo. Su único 
-                               contenido, una extraña semilla, lleva consigo una maldición que condenará al pueblo entero. Pero poco sospechan de la verdadera 
-                               magnitud de este suceso. 
-                            </p>
-                            <p>Si el árbol de las flores negras llegara a florecer, la Orden del Mal volvería a reinar. 
-                                Haigol, el líder de la Orden del Bien, sabe que el fuego de dragón es la única arma capaz 
-                               de destruir el árbol. Ha recibido una carta con un mensaje desconcertante: Donald es el elegido para liberar al último dragón azul.
-                            </p>
+            <div class="carousel-wrapper">
+                <button class="carousel-btn prev" aria-label="Anterior" disabled>&#8249;</button>
+                <div class="carousel-track" id="carouselTrack">
+                    <!-- Libro 1 -->
+                    <div class="book-slide">
+                        <div class="book-cover-wrapper">
+                            <img src="El-misterio-del-Bosque-Gris.webp" alt="Portada del primer libro">
                         </div>
-                        <button aria-expanded="false" aria-controls="more-1" class="read-more-btn"><span class="text">Leer más</span></button>
-                    </div>
-
-                    <div class="book-video-wrapper">
-                        <a href="https://www.youtube.com/watch?v=Fg9pwGJ4kY8" target="_blank" rel="noopener noreferrer" class="video-thumbnail-link">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/Fg9pwGJ4kY8/maxresdefault.jpg" alt="Ver tráiler en YouTube">
-                                <div class="play-button-overlay">
-                                    <span class="play-icon">▶</span>
+                        <div class="book-details">
+                            <span class="book-number">Libro I</span>
+                            <h3>El Misterio del Bosque Gris</h3>
+                            <div class="sinopsis-wrapper">
+                                <p class="book-sinopsis-short">
+                                    En una misión de la que depende la suerte del mundo, Donald y su compañero deberán llegar hasta el otro lado de la región de Tartamian para rescatar al último dragón azul. El mago Haigol les guiará para que Donald descubra el verdadero poder que reside en su interior.
+                                </p>
+                                <div id="more-1" class="fulltext" hidden>
+                                    <p>Donald Talonne es un joven campesino que vive en la ciudad de Forbbings, situada en las faldas de los Montes Cercanos. Junto con su amigo Ron, ha descubierto en el Bosque Gris un enigmático cofre que cambiará su vida por completo. Su único contenido, una extraña semilla, lleva consigo una maldición que condenará al pueblo entero. Pero poco sospechan de la verdadera magnitud de este suceso.</p>
+                                    <p>Si el árbol de las flores negras llegara a florecer, la Orden del Mal volvería a reinar. Haigol, el líder de la Orden del Bien, sabe que el fuego de dragón es la única arma capaz de destruir el árbol. Ha recibido una carta con un mensaje desconcertante: Donald es el elegido para liberar al último dragón azul.</p>
                                 </div>
+                                <button aria-expanded="false" aria-controls="more-1" class="read-more-btn"><span class="text">Leer más</span></button>
                             </div>
-                            <p class="video-caption">🎬 Haz clic para ver el tráiler oficial en YouTube</p>
-                        </a>
-                    </div>
-                   
-                    <div class="book-meta">
-                        <span>⭐⭐⭐⭐☆ 4.5/5</span>
-                        <a href="http://comicstores.es/libro/el-arbol-de-las-flores-negras-i-el-misterio-del-bosque-gris_175421" class="buy-link" target="_blank">Comprar</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="book-divider">
-                <span class="divider-line"></span>
-                <span class="divider-symbol">🌒</span>
-                <span class="divider-line"></span>
-            </div>
-
-            <!-- LIBRO 2 -->
-            <div class="book-row">
-                <div class="book-cover-placeholder">
-                    <img src="Las-sombras-del-mal.webp" alt="Portada del segundo libro"/>
-                </div>
-                <div class="book-info">
-                    <span class="book-number">Libro II</span>
-                    <h3>Las Sombras del Mal</h3>
-                    
-                    <div class="sinopsis-wrapper">
-                        <p class="book-sinopsis-short">
-                            El tiempo corre en su contra. El árbol de las flores negras está creciendo. Rumores bajo el suelo pronostican el final de Forbbings.
-                            Las amenazas no dejan de crecer: la lluvia maldita en Lobos, la insurrección sectaria en Crossfaith, el caos de la Guardia en Kurgan...
-                        </p>
-                        <div id="more-2" class="fulltext" hidden="true">
-                            <p>
-                                La Orden del Mal ha conseguido nuevos adeptos y prepara nuevas maniobras para evitar que el elegido pueda completar su misión. 
-                                Haigol debe ganarse la confianza del campesino, debe mantener la moral alta pese a las dificultades, quiere ofrecerle un regalo...
-                                pero la Orden del Mal quiere arrebatarle toda la esperanza que le quede. Ambas fuerzas pondrán a Donald al límite.
-                            </p>
-                            <p>
-                                Por otro lado, Donald se siente cada vez más cerca de la magia. La Luz comienza a crecer en su interior. 
-                                Su poder será lo único que le salvará de caer en las sombras del Mal.
-                            </p>
+                            <div class="book-meta">
+                                <span class="star-rating" data-rating="4.5" aria-label="4.5 de 5 estrellas"></span>
+                                <span class="rating-text">4.5/5</span>
+                                <a href="http://comicstores.es/libro/el-arbol-de-las-flores-negras-i-el-misterio-del-bosque-gris_175421" class="buy-link" target="_blank">Comprar</a>
+                            </div>
+                            <div class="book-video-wrapper">
+                                <a href="https://www.youtube.com/watch?v=Fg9pwGJ4kY8" target="_blank" rel="noopener noreferrer" class="video-thumbnail-link">
+                                    <p class="video-caption">🎬 Haz clic para ver el tráiler oficial en YouTube</p>
+                                </a>
+                            </div>
                         </div>
-                        <button aria-expanded="false" aria-controls="more-2" class="read-more-btn"><span class="text">Leer más</span></button>
                     </div>
-                    
-                    <div class="book-meta">
-                        <span>⭐⭐⭐⭐⭐ 5/5</span>
-                        <a href="https://comicstores.es/libro/las-sombras-del-mal_195900" class="buy-link" target="_blank">Comprar</a>
-                    </div>
-                </div>                
-            </div>
 
-            <div class="book-divider">
-                <span class="divider-line"></span>
-                <span class="divider-symbol">🌒</span>
-                <span class="divider-line"></span>
-            </div>
-
-            <!-- LIBRO 3 -->
-            <div class="book-row reverse">                
-                <div class="book-cover-placeholder">
-                    <img src="Ser-fuego-de-dragon.webp" alt="Portada del tercer libro"/>
-                </div>
-                <div class="book-info">
-                    <span class="book-number">Libro III</span>
-                    <h3>Ser Fuego de Dragón</h3>
-                    <div class="sinopsis-wrapper">
-                        <p class="book-sinopsis-short">
-                            Donald Talonne descubrió su destino en “El misterio del Bosque Gris” y se vio atrapado en sus más temidas pesadillas en “Las Sombras del Mal”, 
-                            continúa su viaje hacia la Isla Nublada, donde le espera el último dragón azul.                             
-                        </p>
-                        <div id="more-3" class="fulltext" hidden="true">
-                            <p>
-                                El mundo observa conmocionado el crecimiento del árbol de las flores negras. 
-                                En las ramas, que alcanzan ya las nubes, se aprecian oscuros bultos palpitantes. 
-                            </p>
-                            <p>
-                                Nuestros protagonistas tomaran senderos distintos a partir de ahora. Por un lado, Ronald decide prepararse para la batalla y entrenar con el 
-                                ejército de Edward bajo la tutela del general Dusk. 
-                                Donald, junto a Haigol, llega a la Isla Nublada donde le aguarda el dragón azul pero se encontrará con algo inesperado.
-                            </p>
-                            <p>
-                                Las criaturas mágicas de Tartamian salen de sus cuevas, madrigueras y bosques; han oído la voz de alarma. 
-                                Si no unen fuerzas con los magos, no habrá futuro para nadie.
-                            </p>
+                    <!-- Libro 2 -->
+                    <div class="book-slide">
+                        <div class="book-cover-wrapper">
+                            <img src="Las-sombras-del-mal.webp" alt="Portada del segundo libro">
                         </div>
-                        <button aria-expanded="false" aria-controls="more-3" class="read-more-btn"><span class="text">Leer más</span></button>
+                        <div class="book-details">
+                            <span class="book-number">Libro II</span>
+                            <h3>Las Sombras del Mal</h3>
+                            <div class="sinopsis-wrapper">
+                                <p class="book-sinopsis-short">
+                                    El tiempo corre en su contra. El árbol de las flores negras está creciendo. Rumores bajo el suelo pronostican el final de Forbbings. Las amenazas no dejan de crecer: la lluvia maldita en Lobos, la insurrección sectaria en Crossfaith...
+                                </p>
+                                <div id="more-2" class="fulltext" hidden>
+                                    <p>La Orden del Mal ha conseguido nuevos adeptos y prepara nuevas maniobras para evitar que el elegido pueda completar su misión. Haigol debe ganarse la confianza del campesino, mantener la moral alta y ofrecerle un regalo… pero la Orden del Mal quiere arrebatarle toda la esperanza.</p>
+                                    <p>Por otro lado, Donald se siente cada vez más cerca de la magia. La Luz comienza a crecer en su interior. Su poder será lo único que le salvará de caer en las sombras del Mal.</p>
+                                </div>
+                                <button aria-expanded="false" aria-controls="more-2" class="read-more-btn"><span class="text">Leer más</span></button>
+                            </div>
+                            <div class="book-meta">
+                                <span class="star-rating" data-rating="5.0" aria-label="5 de 5 estrellas"></span>
+                                <span class="rating-text">5/5</span>
+                                <a href="https://comicstores.es/libro/las-sombras-del-mal_195900" class="buy-link" target="_blank">Comprar</a>
+                            </div>
+                            <div class="book-video-wrapper">
+                                <a href="https://www.youtube.com/watch?v=ciIKTyzYPow" target="_blank" rel="noopener noreferrer" class="video-thumbnail-link">
+                                    <p class="video-caption">🎬 Haz clic para ver el tráiler oficial en YouTube</p>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="book-meta">
-                        <span>⭐⭐⭐⭐⭐ 5/5 (Final de saga)</span>
-                        <a href="https://comicstores.es/libro/el-arbol-de-las-flores-negras-iii-ser-fuego-de-dragon_552747" class="buy-link" target="_blank">Comprar</a>
-                    </div>                    
+
+                    <!-- Libro 3 -->
+                    <div class="book-slide">
+                        <div class="book-cover-wrapper">
+                            <img src="Ser-fuego-de-dragon.webp" alt="Portada del tercer libro">
+                        </div>
+                        <div class="book-details">
+                            <span class="book-number">Libro III (Final de la saga)</span>
+                            <h3>Ser Fuego de Dragón</h3>
+                            <div class="sinopsis-wrapper">
+                                <p class="book-sinopsis-short">
+                                    Donald Talonne descubrió su destino en “El misterio del Bosque Gris” y se vio atrapado en sus más temidas pesadillas en “Las Sombras del Mal”. Ahora continúa su viaje hacia la Isla Nublada, donde le espera el último dragón azul.
+                                </p>
+                                <div id="more-3" class="fulltext" hidden>
+                                    <p>El mundo observa conmocionado el crecimiento del árbol de las flores negras. En las ramas, que alcanzan ya las nubes, se aprecian oscuros bultos palpitantes.</p>
+                                    <p>Nuestros protagonistas tomarán senderos distintos. Ronald se prepara para la batalla con el ejército de Edward bajo la tutela del general Dusk. Donald, junto a Haigol, llega a la Isla Nublada donde le aguarda el dragón azul, pero se encontrará con algo inesperado.</p>
+                                    <p>Las criaturas mágicas de Tartamian salen de sus cuevas, madrigueras y bosques; han oído la voz de alarma. Si no unen fuerzas con los magos, no habrá futuro para nadie.</p>
+                                </div>
+                                <button aria-expanded="false" aria-controls="more-3" class="read-more-btn"><span class="text">Leer más</span></button>
+                            </div>
+                            <div class="book-meta">
+                                <span class="star-rating" data-rating="5.0" aria-label="5 de 5 estrellas"></span>
+                                <span class="rating-text">5/5</span>
+                                <a href="https://comicstores.es/libro/el-arbol-de-las-flores-negras-iii-ser-fuego-de-dragon_552747" class="buy-link" target="_blank">Comprar</a>
+                            </div>
+                            <div class="book-video-wrapper">
+                                <a href="https://www.verkami.com/projects/31397-ser-fuego-de-dragon-desenlace-de-la-trilogia-el-arbol-de-las-flores-negras" target="_blank" rel="noopener noreferrer" class="video-thumbnail-link">
+                                    <div class="video-caption">
+                                        <img src="logo_vkm.webp" alt="Logo" class="caption-logo">
+                                        <span>Haz clic para ver el proyecto financiado en Verkami</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
+                <button class="carousel-btn next" aria-label="Siguiente" disabled>&#8250;</button>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN SOBRE EL AUTOR (PLACEHOLDER) -->
-    <section id="autor" class="autor-section" hidden="True">
-        <div class="container autor-container">
-            <div class="autor-image-placeholder">
-                <span>📸 FOTO DEL AUTOR</span>
-            </div>
-            <div class="autor-bio">
-                <h2 class="section-title left-align">Sobre el Autor</h2>
-                <p><strong>MARC RAMOS BRUACH</strong></p>
-                <p>[TU BIOGRAFÍA AQUÍ - Escribe sobre tu inspiración para crear "El Árbol de las Flores Negras", tu trayectoria como escritor de fantasía oscura y qué esperas transmitir con esta trilogía.]</p>
-                <div class="social-links">
-                    <a href="#">Instagram</a> | <a href="#">Twitter / X</a> | <a href="#">Goodreads</a>
-                </div>
-            </div>
+    <!-- SECCIÓN DISCO (Blog en progreso) -->
+    <section id="disco" class="blog-section">
+        <div class="container">
+            <h2 class="section-title">Disco de la Trilogía</h2>
+            <p>🎸 <em>(EN PROGRESO)</em> Próximamente iré publicando aquí los avances sobre la banda sonora original inspirada en El Árbol de las Flores Negras.</p>
+            <a href="blog-disco.html" class="btn-blog">[MOLT AVIAT]</a>
         </div>
     </section>
 
-    <!-- SECCIÓN CONTACTO / NEWSLETTER -->
-    <section id="contacto" class="contact-section" hidden="True">
-        <div class="container narrow">
-            <h2 class="section-title">No te pierdas en el Bosque Gris</h2>
-            <p class="contact-sub">Suscríbete para recibir noticias, fechas de lanzamiento y contenido exclusivo de la trilogía.</p>
-            
-            <!-- PLACEHOLDER FORMULARIO (Funcionalidad simulada) -->
-            <div class="form-placeholder">
-                <input type="email" placeholder="Tu correo electrónico" disabled>
-                <button disabled>Enviar ✉️</button>
-                <p class="small-note">[PLACEHOLDER: Aquí irá el formulario de suscripción real o enlace a Mailchimp]</p>
-            </div>
+    <!-- SECCIÓN LA QUINTA ESSÈNCIA (Blog en progreso) -->
+    <section id="essencia" class="blog-section">
+        <div class="container">
+            <h2 class="section-title">La Quinta Essència</h2>
+            <p>🎲 <em>(EN PROGRÉS)</em> En aquest espai compartiré el procés del joc de taula en el que porto
+                més d'un any treballant.</p>
+            <a href="blog-essencia.html" class="btn-blog">[MOLT AVIAT]</a>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p>© <span id="current-year"></span> [Marc Ramos Bruach] - Saga "El Árbol de las Flores Negras". Todos los derechos reservados.</p>
+            <p>© <span id="current-year"></span> Marc Ramos Bruach - Saga "El Árbol de las Flores Negras". Todos los derechos reservados.</p>
             <p class="footer-credits">Diseño inspirado en la oscuridad de la magia antigua.</p>
+            
         </div>
     </footer>
 
+    <!-- SCRIPTS -->
+    <!-- SCRIPTS -->
     <script>
-        // control the "leer más" feature
-		if ('querySelector' in document && 
-			'localStorage' in window && 
-			'addEventListener' in window) {
-
-			var toggleButtons = document.querySelectorAll('.read-more-btn');
-			var fullTextWrappers = document.querySelectorAll('.fulltext');
-			var fullText;
-			var toggleButtonText;
-			
-
-			[].forEach.call(fullTextWrappers, function(fullTextWrapper) {
-				// hide all full text on load
-				fullTextWrapper.setAttribute('hidden', true);
-			});
-
-			[].forEach.call(toggleButtons, function(toggleButton) {
-				// show toggle more buttons
-				toggleButton.removeAttribute('hidden');
-
-				// add listener for each button
-				toggleButton.addEventListener('click', function () {
-
-					fullTextWrapper = this.parentElement.querySelector('.fulltext');
-					toggleButtonText = this.querySelector('.text');
-
-					// change attributes and text if full text is shown/hidden
-					console.log(fullTextWrapper.hasAttribute('hidden'));
-					if (!fullTextWrapper.hasAttribute('hidden')) {
-						toggleButtonText.innerText = 'Leer más';
-						fullTextWrapper.setAttribute('hidden', true);
-						toggleButton.setAttribute('aria-expanded', false);
-					} else {
-						toggleButtonText.innerText = 'Leer menos    ';
-						fullTextWrapper.removeAttribute('hidden');
-						toggleButton.setAttribute('aria-expanded', true);
-					}
-				});
-			});
-		}
-    </script>
-    <script>
-        // Actualizar automáticamente el año en el footer
-        document.addEventListener('DOMContentLoaded', function() {
-            const yearSpan = document.getElementById('current-year');
-            if (yearSpan) {
-                yearSpan.textContent = new Date().getFullYear();
+        document.addEventListener('DOMContentLoaded', function () {
+            // 1. Scroll reveal (fondo que se descubre)
+            const revealImage = document.getElementById('revealImage');
+            function updateReveal() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercent = Math.min(100, Math.max(0, (scrollTop / docHeight) * 100));
+                revealImage.style.clipPath = `inset(${100 - scrollPercent}% 0 0 0)`;
             }
-        });
-    </script>
-    
-    <script>
-    // ===== EFECTO SCROLL REVEAL =====
-    document.addEventListener('DOMContentLoaded', function() {
-        const revealImage = document.getElementById('revealImage');
-        
-        function updateReveal() {
-            // Calcular el porcentaje de scroll
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollPercent = (scrollTop / docHeight) * 100;
-            
-            // Limitar entre 0 y 100
-            const clampedPercent = Math.min(100, Math.max(0, scrollPercent));
-            
-            // La imagen se revela desde arriba hacia abajo
-            // Al 0% scroll: inset(100% 0 0 0) = completamente oculta
-            // Al 100% scroll: inset(0% 0 0 0) = completamente visible
-            const revealAmount = 100 - clampedPercent;
-            
-            revealImage.style.clipPath = `inset(${revealAmount}% 0 0 0)`;
-        }
-        
-        // Actualizar al hacer scroll
-        window.addEventListener('scroll', updateReveal);
-        
-        // Actualizar al cargar la página
-        updateReveal();
-        
-        // Actualizar al redimensionar ventana
-        window.addEventListener('resize', updateReveal);
-    });
-    
-    // Mantener el resto de tus scripts (año, leer más, etc.)
-    document.addEventListener('DOMContentLoaded', function() {
-        // Año actual en footer
-        const yearSpan = document.getElementById('current-year');
-        if (yearSpan) {
-            yearSpan.textContent = new Date().getFullYear();
-        }
-        
-        // Botones "Leer más"
-        const buttons = document.querySelectorAll('.read-more-btn');
-        buttons.forEach(button => {
-            button.addEventListener('click', function() {
-                const targetId = this.getAttribute('data-target');
-                const fullTextDiv = document.getElementById(targetId);
-                
-                fullTextDiv.classList.toggle('visible');
-                
-                if (fullTextDiv.classList.contains('visible')) {
-                    this.innerHTML = 'Leer menos ▲';
-                } else {
-                    this.innerHTML = 'Leer más ▼';
-                }
+            window.addEventListener('scroll', updateReveal);
+            window.addEventListener('resize', updateReveal);
+            updateReveal();
+
+            // 2. Año automático en footer
+            const yearSpan = document.getElementById('current-year');
+            if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+            // 3. Botones "Leer más"
+            document.querySelectorAll('.read-more-btn').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const fulltext = this.parentElement.querySelector('.fulltext');
+                    const textSpan = this.querySelector('.text');
+                    if (fulltext.hasAttribute('hidden')) {
+                        fulltext.removeAttribute('hidden');
+                        textSpan.innerText = 'Leer menos';
+                        this.setAttribute('aria-expanded', 'true');
+                    } else {
+                        fulltext.setAttribute('hidden', '');
+                        textSpan.innerText = 'Leer más';
+                        this.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+
+            // 4. Carrusel mejorado
+            const track = document.getElementById('carouselTrack');
+            const prevBtn = document.querySelector('.carousel-btn.prev');
+            const nextBtn = document.querySelector('.carousel-btn.next');
+            const slideWidth = () => track.clientWidth;
+
+            function updateArrows() {
+                const scrollLeft = track.scrollLeft;
+                const maxScroll = track.scrollWidth - track.clientWidth;
+                // Deshabilitar si está al principio o al final (con pequeño margen)
+                prevBtn.disabled = scrollLeft <= 5;
+                nextBtn.disabled = scrollLeft >= maxScroll - 5;
+            }
+
+            prevBtn.addEventListener('click', () => {
+                track.scrollBy({ left: -slideWidth(), behavior: 'smooth' });
+            });
+            nextBtn.addEventListener('click', () => {
+                track.scrollBy({ left: slideWidth(), behavior: 'smooth' });
+            });
+
+            track.addEventListener('scroll', updateArrows);
+            window.addEventListener('resize', updateArrows);
+            updateArrows(); // Estado inicial
+            // Inicializar estrellas ⭐
+            document.querySelectorAll('.star-rating').forEach(star => {
+                star.style.setProperty('--rating', parseFloat(star.dataset.rating) || 0);
             });
         });
-    });
-</script>
+    </script>
 </body>
 </html>
