@@ -159,8 +159,7 @@ def main():
     with open(template_path, 'r', encoding='utf-8') as f:
         template = f.read()
    
-    # Ruta absoluta: f'/blog/{args.blog}/'
-    back_link = f'/blog/{args.blog}/'
+    back_link = f'../../'
 
     date_iso = fecha.isoformat()
     months_es = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre']
