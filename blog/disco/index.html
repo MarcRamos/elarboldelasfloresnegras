@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/favicon_io/favicon.ico">
+    <title>Blog del Disco - El Árbol de las Flores Negras</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body class="blog-list-page" data-blog="disco">
+    <div class="scroll-reveal-background">
+        <div class="reveal-image" id="revealImage"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-links">
+                <a href="/">← Inicio</a>
+                <a href="/blog/disco/">Blog Disco</a>
+                <a href="/blog/essencia/">Blog La Quinta Essència</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="blog-layout">
+        <aside class="blog-sidebar">
+            <h2 class="sidebar-title">📀 Navegar por el blog</h2>
+            <div id="blog-nav"></div>
+        </aside>
+
+        <main class="blog-main">
+            <section class="blog-list-section">
+                <div class="container">
+                    <h1 class="section-title">🎵 Disco de la Trilogía</h1>
+                    <p class="blog-description">Sigue el proceso de creación de la banda sonora original.</p>
+                    <!-- Lista dinámica de artículos -->
+                    <div id="blog-list"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© <span id="current-year"></span> Marc Ramos Bruach</p>
+        </div>
+    </footer>
+
+    <script src="/assets/js/blog-data.js"></script>
+    <script src="/assets/js/blog-manager.js"></script>
+    <script src="/assets/js/current-year.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/favicon_io/favicon.ico">
+    <title>{{TITLE}} - El Árbol de las Flores Negras</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body class="blog-page">
+    <div class="scroll-reveal-background">
+        <div class="reveal-image" id="revealImage"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-links">
+                <a href="/">← Volver a la web</a>
+                <a href="/blog/disco/">Blog Disco</a>
+                <a href="/blog/essencia/">Blog La Quinta Essència</a>
+            </div>
+        </div>
+    </nav>
+
+    <article class="blog-article">
+        <div class="container">
+            <header class="article-header">
+                <span class="article-category">{{CATEGORY}}</span>
+                <h1 class="article-title">{{TITLE}}</h1>
+                <time class="article-date" datetime="{{DATE_ISO}}">{{DATE_FORMATTED}}</time>
+            </header>
+            <div class="article-content">
+                {{CONTENT}}
+            </div>
+            <footer class="article-footer">
+                <a href="{{BACK_LINK}}" class="btn-back">← Volver al blog</a>
+            </footer>
+        </div>
+    </article>
+
+    <footer>
+        <div class="container">
+            <p>© <span id="current-year"></span> Marc Ramos Bruach</p>
+        </div>
+    </footer>
+
+    <script src="/assets/js/blog-scripts.js"></script>
+</body>
+</html>
