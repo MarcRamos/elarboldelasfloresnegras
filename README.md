@@ -131,18 +131,17 @@ raíz/
 │           ├── logo_vkm.webp
 │           ├── marc+sj26.webp
 │           └── pexels-fir-trees-1835402.jpg
-├── blog/
-│   ├── disco/
-│   │   ├── index.html              # Página principal del blog (antes blog-disco.html)
-│   │   └── posts/                  # Artículos generados
-│   │       ├── disco-05-2025-1.html
-│   │       └── ...
-│   └── essencia/
-│       ├── index.html              # Página principal del blog (antes blog-essencia.html)
-│       └── posts/
-│           ├── essencia-03-2026-1.html
-│           └── ...
-└── (opcional) .gitignore
+└── blog/
+    ├── disco/
+    │   ├── index.html              # Página principal del blog (antes blog-disco.html)
+    │   └── posts/                  # Artículos generados
+    │       ├── disco-05-2025-1.html
+    │       └── ...
+    └── essencia/
+        ├── index.html              # Página principal del blog (antes blog-essencia.html)
+        └── posts/
+            ├── essencia-03-2026-1.html
+            └── ...
 ```
 
 ---
