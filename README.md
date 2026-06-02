@@ -37,7 +37,6 @@ Aquí empieza el contenido del artículo en **Markdown**.
 ## Sección 1
 
 Párrafos, imágenes, etc.
-```
 
 **Campos del front matter:**
 - `title`: obligatorio. Título del artículo.
