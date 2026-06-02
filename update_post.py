@@ -159,7 +159,7 @@ def main():
     with open(template_path, 'r', encoding='utf-8') as f:
         template = f.read()
    
-    back_link = f'../../'
+    back_link = f'../..'
 
     date_iso = fecha.isoformat()
     months_es = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre']
@@ -191,9 +191,13 @@ def main():
     }
 
     if args.blog == 'disco':
+        if new_entry["titulo"] in [d["titulo"] for d in disco_articulos]:
+            print(f'Artículo con título {new_entry["titulo"]} ya existe')
         disco_articulos.append(new_entry)
         disco_articulos.sort(key=lambda x: x['fecha'], reverse=True)
     else:
+        if new_entry["titulo"] in [e["titulo"] for e in essencia_articulos]:
+            print(f'Artículo con título {new_entry["titulo"]} ya existe')
         essencia_articulos.append(new_entry)
         essencia_articulos.sort(key=lambda x: x['fecha'], reverse=True)
 
