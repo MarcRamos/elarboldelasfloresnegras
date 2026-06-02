@@ -391,7 +391,7 @@ footer {
 }
 
 /* Estilos para narradores y diálogos */
-.article-content .narrador {
+.purple-bg {
     color: var(--smoke-gray);
     font-style: normal;
     margin-bottom: 1.5em;
@@ -399,7 +399,7 @@ footer {
     padding-left: 15px;
 }
 
-.article-content .esquirol {
+.orange-bg {
     background: rgba(210, 105, 30, 0.1);
     border-left: 4px solid var(--dragon-fire);
     padding: 15px 20px;
@@ -421,7 +421,7 @@ footer {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
-.carta {
+.scroll-bg {
     background: #2a2418;                /* Base marrón oscuro */
     color: #d4c5a9;
     font-family: 'Georgia', 'Times New Roman', serif;
