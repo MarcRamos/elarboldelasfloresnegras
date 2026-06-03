@@ -7,6 +7,15 @@
     <title>Blog La Quinta Essència - El Árbol de las Flores Negras</title>
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        .blog-list-page {
+            padding-top: 0;
+        }
+        .blog-list-page .navbar {
+            position: relative;
+            margin-bottom: 0;
+        }
+    </style>
 </head>
 <body class="blog-list-page" data-blog="essencia">
     <nav class="navbar">
@@ -19,7 +28,27 @@
         </div>
     </nav>
 
+    <div class="banner-prologo">
+        <div class="banner-prologo__contenido">
+            <div class="banner-prologo__texto">
+            <h2 class="banner-prologo__titulo">
+                <span class="banner-prologo__icono">⚗️</span> 
+                La Quinta Essència
+            </h2>
+            <p class="banner-prologo__descripcion">
+                Descobreix la història de la mestra Elyria i l'inici de l'aventura dels alquimistes!
+            </p>
+            </div>
+            <div class="banner-prologo__accion">
+            <a href="https://marcramos.github.io/proleg-interactiu/" class="banner-prologo__boton" aria-label="Accedir al pròleg interactiu">
+                Accedir al pròleg interactiu <span class="banner-prologo__flecha">→</span>
+            </a>
+            </div>
+        </div>
+    </div>
+
     <div class="blog-layout">
+        
         <aside class="blog-sidebar">
             <h2 class="sidebar-title">⚗️ Navegar pel blog</h2>
             <div id="blog-nav"></div>
@@ -28,8 +57,8 @@
         <main class="blog-main">
             <section class="blog-list-section">
                 <div class="container">
-                    <h1 class="section-title">🔥 La Quinta Essència</h1>
                     <p class="blog-description">Segueix el procés creatiu del joc de taula.</p>
+                    <h1 class="section-title">🔥 La Quinta Essència</h1>
                     <!-- Lista dinámica de artículos -->
                     <div id="blog-list"></div>
                 </div>

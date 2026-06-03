@@ -830,3 +830,128 @@ button:focus-visible,
         transition: none;
     }
 }
+
+.banner-prologo {
+  background: linear-gradient(90deg, #0f111a 0%, #1a1e2a 100%);
+  border-bottom: 2px solid #d4af37;
+  padding: 0.75rem 1.5rem;
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.banner-prologo__contenido {
+  max-width: 850px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.banner-prologo__texto {
+  flex: 2;
+  min-width: 200px;
+}
+
+.banner-prologo__titulo {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #d4af37;
+  margin: 0;
+  letter-spacing: -0.2px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.banner-prologo__icono {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.banner-prologo__descripcion {
+  font-size: 0.85rem;
+  color: #cbd5e6;
+  margin: 0.2rem 0 0 0;
+  line-height: 1.3;
+}
+
+.banner-prologo__accion {
+  flex-shrink: 0;
+}
+
+
+/* BOTÓN CON BRILLO SUTIL */
+.banner-prologo__boton {
+  display: inline-block;
+  background-color: #d4af37;
+  color: #0a0c12;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+  animation: brillo-sutil 2s ease-in-out infinite;
+}
+
+/* Efecto de brillo líquido / alquímico */
+.banner-prologo__boton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+
+.banner-prologo__boton:hover::before {
+  left: 100%;
+}
+.banner-prologo__boton:hover {
+  background-color: #e6c85c;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.banner-prologo__boton:active {
+  transform: translateY(0);
+}
+
+/* Accesibilidad: foco visible */
+.banner-prologo__boton:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+  background-color: #e6c85c;
+}
+
+/* Responsive: en móviles se apila */
+@media (max-width: 640px) {
+  .banner-prologo {
+    padding: 0.75rem 1rem;
+  }
+  .banner-prologo__contenido {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+  .banner-prologo__titulo {
+    font-size: 1rem;
+  }
+  .banner-prologo__descripcion {
+    font-size: 0.8rem;
+  }
+  .banner-prologo__boton {
+    font-size: 0.8rem;
+    padding: 0.4rem 1rem;
+  }
