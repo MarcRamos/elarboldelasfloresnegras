@@ -390,6 +390,121 @@ footer {
     margin-bottom: 1.5em;
 }
 
+/* ===== ESTILOS GENERADOS DESDE MARKDOWN ===== */
+
+/* Encabezados */
+.article-content .article-heading {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    color: var(--pure-white);
+    line-height: 1.3;
+}
+
+.article-content .article-heading--1 {
+    font-size: 2.2rem;
+    border-bottom: 2px solid var(--blood-flower);
+    padding-bottom: 0.5em;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+}
+
+.article-content .article-heading--2 {
+    font-size: 1.6rem;
+    color: var(--dragon-fire);
+    margin-top: 1.8em;
+}
+
+.article-content .article-heading--3 {
+    font-size: 1.3rem;
+    color: var(--smoke-gray);
+    font-style: italic;
+}
+
+.article-content .article-heading--4 {
+    font-size: 1.1rem;
+    color: var(--mystic-purple);
+    text-transform: uppercase;
+}
+
+/* Blockquotes */
+.article-content .article-blockquote {
+    background: rgba(74, 44, 93, 0.15);
+    border-left: 4px solid var(--mystic-purple);
+    padding: 1em 1.5em;
+    margin: 1.5em 0;
+    color: var(--smoke-gray);
+    font-style: italic;
+    border-radius: 0 8px 8px 0;
+}
+
+.article-content .article-blockquote p {
+    margin-bottom: 0.5em;
+}
+
+.article-content .article-blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+/* Palabras importantes (negrita) */
+.article-content .article-strong {
+    color: var(--dragon-fire);
+    font-weight: 600;
+}
+
+/* Énfasis (cursiva) */
+.article-content .article-em {
+    color: #d4c5a9;
+    font-style: italic;
+}
+
+/* Imágenes */
+.article-content .article-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 1.5em auto;
+    border-radius: 6px;
+    border: 1px solid var(--mystic-purple);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Enlaces */
+.article-content .article-link {
+    color: var(--dragon-fire);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: color 0.3s, text-decoration-color 0.3s;
+}
+
+.article-content .article-link:hover {
+    color: var(--blood-flower);
+    text-decoration-color: var(--blood-flower);
+}
+
+/* Figura (imagen con caption) */
+.article-content .article-figure {
+    margin: 2em 0;
+    text-align: center;
+}
+
+.article-content .article-figure .article-image {
+    margin-bottom: 0.5em;
+}
+
+.article-content .article-figcaption {
+    color: var(--smoke-gray);
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-top: 0.5em;
+    text-align: center;
+    opacity: 0.85;
+}
+
+/* ===== FIN ESTILOS GENERADOS DESDE MARKDOWN ===== */
+
 /* Estilos para narradores y diálogos */
 .purple-bg {
     color: var(--smoke-gray);

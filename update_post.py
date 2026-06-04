@@ -85,6 +85,35 @@ def extract_resumen(md_html):
             return line[:200] + '...' if len(line) > 200 else line
     return 'Sin resumen'
 
+def convert_markdown(md_body):
+    """Convierte markdown a HTML con estilos personalizados para artículos del blog.
+    
+    - Convierte la sintaxis markdown a HTML semántico.
+    - Wrapea imágenes seguidas de *caption* en <figure> con <figcaption>.
+    - Añade clases CSS a encabezados, blockquotes, strong, em e imágenes.
+    """
+    # Pre-procesado: imagen + caption (*text*) en la línea siguiente
+    #   ![alt](url)\n*caption*  →  <figure>...<figcaption>caption</figcaption></figure>
+    img_caption_re = r'!\[([^\]]*)\]\(([^)]+)\)\s*\n\s*\*([^*]+)\*\s*'
+    md_body = re.sub(
+        img_caption_re,
+        r'<figure class="article-figure"><img src="\2" alt="\1"/><figcaption class="article-figcaption">\3</figcaption></figure>',
+        md_body
+    )
+
+    # Conversión estándar markdown → HTML
+    html = markdown.markdown(md_body, extensions=['extra', 'codehilite'])
+
+    # Post-procesado: añadir clases CSS a elementos HTML generados
+    html = re.sub(r'<h(\d)>(.*?)</h\1>', r'<h\1 class="article-heading article-heading--\1">\2</h\1>', html)
+    html = html.replace('<blockquote>', '<blockquote class="article-blockquote">')
+    html = html.replace('<strong>', '<strong class="article-strong">')
+    html = html.replace('<em>', '<em class="article-em">')
+    html = re.sub(r'(<img\s)(?![^>]*class=)', r'\1class="article-image" ', html)
+    html = re.sub(r'(<a\s)(?![^>]*class=)', r'\1class="article-link" ', html)
+
+    return html
+
 def main():
     parser = argparse.ArgumentParser(description='Convierte Markdown a artículo HTML del blog.')
     parser.add_argument('input', help='Archivo Markdown de entrada')
@@ -147,8 +176,8 @@ def main():
             print("Operación cancelada.")
             return
 
-    # Convertir Markdown a HTML
-    md_html = markdown.markdown(md_body, extensions=['extra', 'codehilite'])
+    # Convertir Markdown a HTML con estilos personalizados
+    md_html = convert_markdown(md_body)
 
     # Cargar plantilla
     template_path = Path(TEMPLATE_FILE)

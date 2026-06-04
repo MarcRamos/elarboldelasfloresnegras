@@ -3,6 +3,13 @@ var articulosDisco = [];
 
 var articulosEssencia = [
     {
+        "titulo": "Un dia fosc d'abril",
+        "fecha": "2026-06-04",
+        "url": "posts/essencia-06-2026-2.html",
+        "categoria": "Creació, Regles",
+        "resumen": "Hi ha idees que arriben després de mesos de reflexió. Altres apareixen durant una tarda avorrida. I després hi ha les que neixen quan et quedes sense electricitat."
+    },
+    {
         "titulo": "Pròleg del joc",
         "fecha": "2026-06-01",
         "url": "posts/essencia-06-2026-1.html",
