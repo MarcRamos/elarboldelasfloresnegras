@@ -59,23 +59,23 @@ function buildSidebar(articulos, container) {
         const totalYearArticles = monthKeys.reduce((acc, m) => acc + months[m].articulos.length, 0);
 
         html += `<li class="nav-year">
-            <button class="nav-toggle" aria-expanded="false" data-target="year-${year}">
-                <span class="toggle-icon">▸</span>
+            <button class="nav-toggle" aria-expanded="true" data-target="year-${year}">
+                <span class="toggle-icon" style="transform: rotate(90deg);">▸</span>
                 <span class="nav-label">${year}</span>
                 <span class="nav-count">(${totalYearArticles})</span>
             </button>
-            <ul class="nav-months" id="year-${year}" hidden>`;
+            <ul class="nav-months" id="year-${year}">`;
 
         monthKeys.forEach(monthIndex => {
             const monthData = months[monthIndex];
             const monthId = `month-${year}-${monthIndex}`;
             html += `<li class="nav-month">
-                <button class="nav-toggle" aria-expanded="false" data-target="${monthId}">
-                    <span class="toggle-icon">▸</span>
+                <button class="nav-toggle" aria-expanded="true" data-target="${monthId}">
+                    <span class="toggle-icon" style="transform: rotate(90deg);">▸</span>
                     <span class="nav-label">${monthData.nombre}</span>
                     <span class="nav-count">(${monthData.articulos.length})</span>
                 </button>
-                <ul class="nav-articles" id="${monthId}" hidden>`;
+                <ul class="nav-articles" id="${monthId}">`;
 
             monthData.articulos.forEach(art => {
                 html += `<li class="nav-article"><a href="${art.url}">${art.titulo}</a></li>`;
