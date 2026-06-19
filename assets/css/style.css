@@ -455,6 +455,7 @@ footer {
     line-height: 1.8;
     font-size: 1.1rem;
 }
+
 .article-content p {
     margin-bottom: 1.5em;
 }
@@ -570,6 +571,28 @@ footer {
     margin-top: 0.5em;
     text-align: center;
     opacity: 0.85;
+}
+
+.article-content .article-figure--large {
+    width: 55%;
+    margin: 2em auto;
+}
+.article-figure--small {
+    float: right;
+    width: 35%;
+    margin: 0.5em  1em 1.5em;
+}
+
+.article-figure--small .article-image {
+    width: 100%;
+    display: block;
+    margin: 0 0.7em 0.5em;
+}
+
+.article-content::after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 /* ===== FIN ESTILOS GENERADOS DESDE MARKDOWN ===== */

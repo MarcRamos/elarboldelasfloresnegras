@@ -1,5 +1,13 @@
 // /assets/js/blog-data.js (generado automáticamente por script.py)
-var articulosDisco = [];
+var articulosDisco = [
+    {
+        "titulo": "Cuando el metal encontró la trilogía",
+        "fecha": "2026-06-19",
+        "url": "posts/disco-06-2026-1.html",
+        "categoria": "Creación, Música",
+        "resumen": "A veces las conexiones más inesperadas son las que terminan dando forma a algo nuevo."
+    }
+];
 
 var articulosEssencia = [
     {
