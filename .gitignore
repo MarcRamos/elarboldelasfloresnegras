@@ -5,3 +5,4 @@ opencode.json
 .opencode/
 articles/
 update_post.py
+templates/
