@@ -965,14 +965,10 @@ footer {
     .book-slide { padding: 10px 5px 30px; }
     .book-cover-wrapper { flex: 0 0 auto; width: min(230px, 65%); height: auto; aspect-ratio: 2/3; }
     
-    /* Alinear flechas con la portada en móvil */
+    /* Ocultar flechas en móvil */
     .carousel-btn {
-        width: 44px;
-        height: 60px;
-        font-size: 2rem;
+        display: none;
     }
-    .carousel-btn.prev { left: 5px; }
-    .carousel-btn.next { right: 5px; }
     .read-more-btn,
     .buy-link {
         padding: 12px 24px;
