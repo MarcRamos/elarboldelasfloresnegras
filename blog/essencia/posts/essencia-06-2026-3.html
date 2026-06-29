@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../../../favicon_io/favicon.ico">
+    <title>De la graella a les cartes - El Árbol de las Flores Negras</title>
+    <script>!function(){var t=localStorage.getItem('theme-preference');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');else if(t==='light')document.documentElement.setAttribute('data-theme','light');else if(window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark')}();</script>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body class="blog-page">
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-links">
+                <a href="../../essencia">← Volver al blog</a>
+            </div>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Tema: Auto" title="Tema: Auto (clic para cambiar)"></button>
+        </div>
+    </nav>
+
+    <article class="blog-article">
+        <div class="container">
+            <header class="article-header">
+                <span class="article-category">Creació, Procés</span>
+                <h1 class="article-title">De la graella a les cartes</h1>
+                <time class="article-date" datetime="2026-06-28">28 de junio de 2026</time>
+            </header>
+            <div class="article-content">
+                <p>En l'entrada anterior vaig explicar els orígens del joc i la primera versió —aquella del mapa, els líquids i les varetes— i vaig prometre que parlaria de com el vaig simplificar. Però pel mig hi va haver moltes hores de codi, simulacions, eines, i decisions. I tot això no ho vaig explicar.</p>
+<h1 class="article-heading article-heading--1">Construir el món amb codi</h1>
+<h2 class="article-heading article-heading--2">PyQt5 i la graella de colors</h2>
+<p>Per dissenyar el mapa vaig escriure un programa en Python amb <strong class="article-strong">PyQt5</strong>. Cada casella era un rectangle de color:</p>
+<ul>
+<li><strong class="article-strong">Beix</strong> per a terra.</li>
+<li><strong class="article-strong">Negre</strong> per a paret.</li>
+<li><strong class="article-strong">Gris</strong> per a líquid.</li>
+<li>Un <strong class="article-strong">cercle</strong> per a incògnites.</li>
+</ul>
+<p>No era bonic, però em permetia veure com quedava la distribució de zones, provar diferents configuracions i iterar ràpidament. Podia generar mapes, mirar-los, decidir si funcionaven o no, i tornar a començar en segons.</p>
+<figure class="article-figure"><img class="article-image" src="../../../assets/images/blog/graella-simple.webp "Graella diseny bàsic"" alt="Alt text"/><figcaption class="article-figcaption">Disseny bàsic de la graella de joc, per on els alquimistes i enemics es movien.</figcaption></figure>
+<h2 class="article-heading article-heading--2">Inkarnate: de quadrícula a paisatge</h2>
+<p>Un cop tenia el mapa clar, el recreava manualment a <strong class="article-strong">Inkarnate</strong>. Agafava la disposició de la graella i la reproduïa donant textura a cada tipus de casella: el verd passava a ser pedra amb ombres, el negre es convertia en murs de pedra erosionada, el blau en tolls o llacs de substàncies.</p>
+<p>El procés era artesanal, però va donar personalitat al joc. Vaig arribar a fer diverses peces que s'encaixaven després per a formar mapes complets, amb zones diferenciades i detalls visuals. Era la primera vegada que el projecte semblava un joc de veritat.</p>
+<figure class="article-figure"><img class="article-image" src="../../../assets/images/blog/graella-complexa.webp "Graella diseny complex"" alt="Alt text"/><figcaption class="article-figcaption">Disseny estil fantasia de la graella de joc fer a Inkarnate.</figcaption></figure>
+<h2 class="article-heading article-heading--2">Simulacions de combat</h2>
+<p>Els combat em preocupaven. Havien de ser difícils però justos, i per aconseguir-ho vaig fer simulacions amb codi durant setmanes. A cada iteració ajustava paràmetres:</p>
+<ul>
+<li><strong class="article-strong">Vida</strong> dels enemics i dels alquimistes.</li>
+<li><strong class="article-strong">Mal base</strong> dels atacs.</li>
+<li><strong class="article-strong">Probabilitats</strong> d'encertar o fallar.</li>
+<li><strong class="article-strong">Selecció d'objectiu</strong>: a qui atacaven els enemics.</li>
+<li><strong class="article-strong">Modificadors d'estat</strong>: verí, cremat, il·luminat...</li>
+</ul>
+<table class="article-figure">
+    <tr>
+        <td>
+            <img class="article-image" src="../../../assets/images/blog/plots-1.webp" alt="Resultats de les simulacions 1"/>            
+        </td>
+        <td>
+            <img class="article-image" src="../../../assets/images/blog/plots-2.webp" alt="Resultats de les simulacions 2"/>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <p class="article-figcaption">Grafics obtinguts despres de fer simulacions</p>
+        </td>        
+    </tr>
+</table>
+<p>Els combats depenien de varios factors. El jugador tenia cartes de vareta i cartes d'encanteri que podia combinar per a atacar. Cada cosa tenia les seves estadístiques, el seu abast, la capacitat màgica, la força de combat, precisió, etc. Cada canvi afectava l'equilibri general. Una vida massa alta allargava les batalles fins a fer-les avorrides. Una probabilitat massa baixa feia que el jugador sentís que no controlava res. Trobar el punt mig era qüestió de provar, ajustar, i tornar a provar.</p>
+<h1 class="article-heading article-heading--1">La química dels líquids</h1>
+<p>El sistema de líquids era el cor del joc. Vaig definir molts líquids diferents, cadascun amb la seva personalitat, alguns exemples son:</p>
+<p><strong class="article-strong">Aigua, tòxic, vi, sang, lava, foc, gel, oli inflamable, baba, aigua beneïda, àcid, líquid curatiu, líquid energètic.</strong></p>
+<p>Es podien aconseguir directament de les zones "inundades" del joc, les quals a mesura que exploraves el mapa s'anaven desbloquejant. Altres només es podien aconseguir mitjançant interacció entre tokens dels líquids.</p>
+<p>Els efects de molts d'ells eren obvis (foc crema, gel congela, aigua mulla), d'altres buscaven combinacions més subtils. Una de les coses que més m'agradava era que fossin gotes reals: vaig comprar unes peces petites de colors que normalment s'usen per fer collarets, i les vaig fer servir per representar les gotes de líquid damunt del tauler. Era una solució barata i visualment efectiva.</p>
+<figure class="article-figure"><img class="article-image" src="../../../assets/images/blog/blocs-liquid.webp "peces liquids"" alt="Alt text"/><figcaption class="article-figcaption">Peces petites de colors que represeten líquids del joc, fàcils de col·locar en el mapa i sobre els alquimistes/enemics.</figcaption></figure>
+<p>Quan un alquimista passava per una zona inundada, havia de nadar per sortir-ne i quedava totalment empapat. Això volia dir que si es tractava d'un element perillós, com tóxic, lava, o àcid, tenia el perill de perdre molta vida. Però, és clar, si es trobava en una situació de vida o mort davant d'un enemic, a vegades era la única sortida.</p>
+<p>Les interaccions entre líquids, però, eren difícils de gestionar. Cada gota ocupava un espai, es podia recollir o podia mullar el jugador o l'enemic, i fer-ho xocar amb una altra gota havia de produir alguna reacció. Gestionar tot allò damunt del tauler era complicat. Algunes reaccions que recordo són:</p>
+<ul>
+<li>Aigua + Tòxic = Aigua + Aigua (purificació)</li>
+<li>Aigua + Foc = Fum (s'anul·len)</li>
+<li>Oli + Foc = Foc + Foc (el foc s'escampa)</li>
+<li>Sang + encanteri de llum = Vi (miracle!)</li>
+</ul>
+<p>Una cosa que aquí es podia entreveure era la influencia del joc Noita, així com la importància de dur un vial d'aigua sempre a sobre per a curar-te ràpidament del tòxic i del foc, per exemple. Quan certs enemics entraven en contacte amb el líquid, també rebien certes penalitzacions, cosa que ho feia molt divertit perquè podies parar una trampa pel camí del enemic abans que pogués atacar-te.</p>
+<h1 class="article-heading article-heading--1">El punt d'inflexió</h1>
+<p>Vaig ser conscient del problema un dia concret: estava intentant equilibrar els atacs a distància i em vaig adonar que era un maldecap. Cada casella de distància era un paràmetre nou a tenir en compte. Alhora, gestionar les gotes de líquid —si queien, si tacaven, si es recollien, si reaccionaven— requeria massa microgestió.</p>
+<p>Vaig mirar el tauler, ple de peces de colors, fitxes, cartes, i vaig pensar: <em class="article-em">si tot això fos un joc de cartes, seria molt més àgil.</em></p>
+<p>I així va néixer el deck-builder.</p>
+<h1 class="article-heading article-heading--1">El joc de cartes</h1>
+<p>Vaig abandonar el mapa. Ja no hi havia graella, ni moviment, ni distàncies. Ara la partida es resol des de la mà de cartes. Aquesta seria la tercera versió del joc. També va haver un salt molt important a nivell narratiu: la història tindria més a veure amb la trilogia de llibres de fantasia El Árbol de las Flores Negras que amb el videojoc Noita, eliminant la reacció entre líquids, les varetes, atacs a distància i l'exploració mitjançant moviments. </p>
+<figure class="article-figure"><img class="article-image" src="../../../assets/images/blog/nou-mapa.webp "Nou mapa"" alt="Alt text"/><figcaption class="article-figcaption">Nou mapa i mostra d'algunes cartes.</figcaption></figure>
+<p>Cada jugador començava amb un vial de quatre espais i vint punts de vida. Rebien quatre cartes d'aigua i dos d'un element aleatori. Les barrejaven, n'omplien quatre al vial (en ordre fix, sense reordenar-les) i en deixaven dues a la reserva. La primera carta del vial determinava la velocitat del torn: foc donava 6, gel 5, aigua 4, sang 3, fang 2, babosa 1.</p>
+<figure class="article-figure"><img class="article-image" src="../../../assets/images/blog/elements.webp "Elements"" alt="Alt text"/><figcaption class="article-figcaption">Els nombre d'elements de la versió 3 del joc es va limitar a 6: igual que el nombre de cares del dau més comú.</figcaption></figure>
+<p>A cada ronda es revelava una zona del mapa: quants enemics apareixien, quantes fonts de líquid hi havia, si hi havia objectes especials. Al començament del seu torn, cada jugador podia agafar un o dos líquids de la font de la zona (un si era un pou, dos si era un llac).</p>
+<p>Després pot gestionar el seu vial. Pot descartar cartes i, si volia, reomplir fins a la capacitat màxima o per sota. També podia eliminar una carta del vial —treure-la permanentment de la partida— sempre que estigués accessible: si volia eliminar la tercera carta, havia de descartar les dues primeres. Amb l'objecte l'anell de puresa se'n podien eliminar dues. Les cartes eliminades tornaven a la font i no es podien recuperar.</p>
+<p>Amb la configuració final del vial, el jugador es col·loca en el joc segons la seva velocitat o iniciativa, entre els altres alquimistes i enemics que tenen també les seves pròpies iniciatives definides.</p>
+<p>En qualsevol moment del seu torn, i això és una cosa que em va sembla molt guay desde el principi, un jugador podia cridar l'atenció dels enemics i convertir-se en l'objectiu prioritari, protegint un company ferit. Perquè, es clar, per a decidir a quin alquimista atacava cada enemic havia deixat de ser obvi al no haver un mapa on estar situats físicament. Ara, els alquimistes tenien uns números assignats (1-6) per a convertir-se en objectiu de l'atac enemic. Per exemple, si el jugador A tenia 1 PV i els enemics l'atacaven en treure un 2, el jugador B, amb més vida i atacable en treure un 4, podia cridar l'atenció per rebre tant els atacs del 2 com els del 4.</p>
+<figure class="article-figure"><img class="article-image" src="../../../assets/images/blog/exemple-jugador-1.webp "Exemple jugador"" alt="Alt text"/><figcaption class="article-figcaption">Exemple de les cartes que tenia un alquimista durant el joc.</figcaption></figure>
+<p>Durant el seu torn decidia si usar els líquids per atacar enemics o per crear reaccions alquímiques. Les receptes alquímiques s'obtenien durant l'aventura i, en descobrir-les, es llençaven 2d6 o 3d6 per determinar quins elements les conformaven. Cada recepta produïa un efecte diferent:</p>
+<ul>
+<li><strong class="article-strong">Explosió Arcana</strong>: feia 5 PA repartits entre enemics.</li>
+<li><strong class="article-strong">Escut Elemental</strong>: reduïa en 2 els PA rebuts fins al proper torn.</li>
+<li><strong class="article-strong">Reflux Vital</strong>: curava 4 PV.</li>
+<li><strong class="article-strong">Runa d'Anihilació</strong>: feia 10 de dany directe a un enemic (es destruïa en usar-la).</li>
+<li><strong class="article-strong">Runa de Revitalització</strong>: recuperava tots els PV (es destruïa en usar-la).</li>
+<li><strong class="article-strong">Llaç Eteri</strong>: impedia que un enemic ataqués fins al proper torn.</li>
+</ul>
+<p>Al final del torn, el jugador omplia el vial fins a la capacitat màxima. Si no quedaven líquids a la pila, es barrejaven les cartes descartades i es tornaven a usar.</p>
+<figure class="article-figure"><img class="article-image" src="../../../assets/images/blog/exemples-enemics-v3.webp" alt="Cartes d'enemics"/><figcaption class="article-figcaption">Exemple de les cartes que representen els enemics de la versió 3 del joc.</figcaption></figure>
+<p>La partida s'estructurava en quatre nivells, cadascun amb dues zones. En acabar cada nivell es tirava un dau d'essències per determinar els ingredients de les receptes següents i de la següent part de la <strong class="article-strong">Quinta Essència</strong>.</p>
+<p>La <strong class="article-strong">Quinta Essència</strong> es componia de tres essències menors que calia combinar:</p>
+<ul>
+<li>El <strong class="article-strong">Precursor alquímic</strong>: donava +1 dau addicional a cada atac.</li>
+<li>La <strong class="article-strong">Concocció vital</strong>: en perdre PV, només en perdies la meitat (arrodonint a la baixa).</li>
+<li>El <strong class="article-strong">Catalitzador essencial</strong>: permetia reordenar els líquids dins dels vials.</li>
+</ul>
+<p>Quan les tres essències es combinaven, formaven la <strong class="article-strong">Quinta Essència</strong>, l'única capaç de derrotar el Gran Drac.</p>
+<p>Al final del quart nivell apareixia el Gran Drac: cada ronda infligia dos punts de dany a tothom —aliats i enemics— i només es podia derrotar invocant la Quinta Essència.</p>
+<p>L'objectiu era el mateix: combinar líquids per crear essències. Però tot passava des de la mà, sense distàncies ni gotes escampades pel tauler.</p>
+<p>Era més net. Més ràpid. Però el combat seguia ocupant tot el focus, i jo volia que l'alquímia fos la protagonista. Havíem canviat el tauler per cartes, però la partida encara tenia massa pes el combat, els objectes i no tenia les combinacions com a protagonistes.</p>
+<p>Encara no havia trobat el camí. Però cada canvi em portava una mica més a prop.</p>
+            </div>
+            <footer class="article-footer">
+                <a href="../../essencia" class="btn-back">← Volver al blog</a>
+            </footer>
+        </div>
+    </article>
+
+    <footer>
+        <div class="container">
+            <p>© <span id="current-year"></span> Marc Ramos Bruach</p>
+        </div>
+    </footer>
+
+    <script src="../../../assets/js/theme.js"></script>
+    <script src="../../../assets/js/current-year.js"></script>
+</body>
+</html>

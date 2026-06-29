@@ -11,6 +11,13 @@ var articulosDisco = [
 
 var articulosEssencia = [
     {
+        "titulo": "De la graella a les cartes",
+        "fecha": "2026-06-28",
+        "url": "posts/essencia-06-2026-3.html",
+        "categoria": "Creació, Procés",
+        "resumen": "En l'entrada anterior vaig explicar els orígens del joc i la primera versió —aquella del mapa, els líquids i les varetes— i vaig prometre que parlaria de com el vaig simplificar. Però pel mig hi va ha..."
+    },
+    {
         "titulo": "Un dia fosc d'abril",
         "fecha": "2026-06-04",
         "url": "posts/essencia-06-2026-2.html",

@@ -607,6 +607,32 @@ footer {
     clear: both;
 }
 
+/* Listas */
+.article-content ul {
+    padding-left: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+.article-content ol {
+    padding-left: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+.article-content li {
+    margin-bottom: 0.5em;
+}
+
+.article-content li:last-child {
+    margin-bottom: 0;
+}
+
+.article-content ul ul,
+.article-content ol ol,
+.article-content ul ol,
+.article-content ol ul {
+    margin-bottom: 0;
+}
+
 /* ===== FIN ESTILOS GENERADOS DESDE MARKDOWN ===== */
 
 /* Estilos para narradores y diálogos */
