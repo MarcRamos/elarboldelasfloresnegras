@@ -29,6 +29,8 @@
     btn.textContent = labels[mode] || '\u25D0';
     btn.setAttribute('aria-label', 'Tema: ' + (names[mode] || 'Auto'));
     btn.setAttribute('title', 'Tema: ' + (names[mode] || 'Auto') + ' (clic para cambiar)');
+    var label = document.getElementById('theme-label');
+    if (label) label.textContent = names[mode] || 'Auto';
   }
 
   function toggleTheme() {

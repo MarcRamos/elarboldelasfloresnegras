@@ -17,11 +17,10 @@
         <div class="nav-container">
             <div class="nav-links">
                 <a href="#home">Inicio</a>
-                <a href="#libros">La Trilogía</a>
-                <a href="#disco">Disco</a>
-                <a href="#essencia">La Quinta Essència</a>
+                <a href="#blogs">Blogs</a>
             </div>
             <button id="theme-toggle" class="theme-toggle" aria-label="Tema: Auto" title="Tema: Auto (clic para cambiar)"></button>
+            <span id="theme-label" class="theme-label">Auto</span>
         </div>
     </nav>
 
@@ -30,39 +29,17 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1 class="main-title">El Árbol de las <span class="blood-text">Flores Negras</span></h1>
-            <p class="tagline">Trilogía de fantasía con mucha acción y misterio.</p>
-
-            <!-- BLOQUE DESTACADO -->
-            <div class="hero-banner">
-                <div class="hero-banner-image-container" hidden>
-                    <img src="" alt="" class="hero-banner-image">
-                </div>
-                <div class="hero-banner-content">
-                    <h3 class="hero-banner-heading">Nuevos blogs ✍️</h3>
-                    <p class="hero-banner-text">
-                        En breve estrenaré unos blogs en los que explicaré el proceso de dos nuevos proyectos
-                        enmarcados dentro del universo del Árbol de las Flores Negras: un disco de música y
-                        un juego de mesa. Muy pronto más información.
-                    </p>
-                </div>
-            </div>
-
-            <a href="#libros" class="cta-button">Explora la Oscuridad</a>
         </div>
-    </section>
 
-    <!-- SECCIÓN LIBROS (SLIDESHOW) -->
-    <section id="libros" class="books-section">
-        <div class="container">
-            <h2 class="section-title">La Trilogía Completa</h2>
+        <div class="container" id="libros">
             
-            <div class="carousel-wrapper" role="region" aria-roledescription="carrusel">
+            <div class="carousel-wrapper" role="region" aria-label="Llibres de la trilogia" aria-roledescription="carrusel">
                 <button class="carousel-btn prev" aria-label="Anterior" disabled>&#8249;</button>
                 <div class="carousel-track" id="carouselTrack">
                     <!-- Libro 1 -->
-                    <div class="book-slide">
+                    <div class="book-slide" role="group" aria-roledescription="diapositiva" aria-label="Libro I: El Misterio del Bosque Gris" tabindex="0">
                         <div class="book-cover-wrapper">
-                            <img src="assets/images/portadas/El-misterio-del-Bosque-Gris.webp" alt="Portada del primer libro">
+                            <img src="assets/images/portadas/El-misterio-del-Bosque-Gris.webp" alt="Portada de El Misterio del Bosque Gris">
                         </div>
                         <div class="book-details">
                             <span class="book-number">Libro I</span>
@@ -71,7 +48,7 @@
                                 <p class="book-sinopsis-short">
                                     En una misión de la que depende la suerte del mundo, Donald y su compañero deberán llegar hasta el otro lado de la región de Tartamian para rescatar al último dragón azul. El mago Haigol les guiará para que Donald descubra el verdadero poder que reside en su interior.
                                 </p>
-                                <div id="more-1" class="fulltext" hidden>
+                                <div id="more-1" class="fulltext" hidden aria-live="polite">
                                     <p>Donald Talonne es un joven campesino que vive en la ciudad de Forbbings, situada en las faldas de los Montes Cercanos. Junto con su amigo Ron, ha descubierto en el Bosque Gris un enigmático cofre que cambiará su vida por completo. Su único contenido, una extraña semilla, lleva consigo una maldición que condenará al pueblo entero. Pero poco sospechan de la verdadera magnitud de este suceso.</p>
                                     <p>Si el árbol de las flores negras llegara a florecer, la Orden del Mal volvería a reinar. Haigol, el líder de la Orden del Bien, sabe que el fuego de dragón es la única arma capaz de destruir el árbol. Ha recibido una carta con un mensaje desconcertante: Donald es el elegido para liberar al último dragón azul.</p>
                                 </div>
@@ -80,7 +57,7 @@
                             <div class="book-meta">
                                 <span class="star-rating" data-rating="4.5" aria-label="4.5 de 5 estrellas"></span>
                                 <span class="rating-text">4.5/5</span>
-                                <a href="http://comicstores.es/libro/el-arbol-de-las-flores-negras-i-el-misterio-del-bosque-gris_175421" class="buy-link" target="_blank">Comprar</a>
+                                <a href="http://comicstores.es/libro/el-arbol-de-las-flores-negras-i-el-misterio-del-bosque-gris_175421" class="buy-link" target="_blank" rel="noopener noreferrer">Comprar</a>
                             </div>
                             <div class="book-video-wrapper">
                                 <a href="https://www.youtube.com/watch?v=Fg9pwGJ4kY8" target="_blank" rel="noopener noreferrer" class="video-thumbnail-link">
@@ -91,9 +68,9 @@
                     </div>
 
                     <!-- Libro 2 -->
-                    <div class="book-slide">
+                    <div class="book-slide" role="group" aria-roledescription="diapositiva" aria-label="Libro II: Las Sombras del Mal" tabindex="0">
                         <div class="book-cover-wrapper">
-                            <img src="assets/images/portadas/Las-sombras-del-mal.webp" alt="Portada del segundo libro">
+                            <img src="assets/images/portadas/Las-sombras-del-mal.webp" alt="Portada de Las Sombras del Mal">
                         </div>
                         <div class="book-details">
                             <span class="book-number">Libro II</span>
@@ -102,7 +79,7 @@
                                 <p class="book-sinopsis-short">
                                     El tiempo corre en su contra. El árbol de las flores negras está creciendo. Rumores bajo el suelo pronostican el final de Forbbings. Las amenazas no dejan de crecer: la lluvia maldita en Lobos, la insurrección sectaria en Crossfaith...
                                 </p>
-                                <div id="more-2" class="fulltext" hidden>
+                                <div id="more-2" class="fulltext" hidden aria-live="polite">
                                     <p>La Orden del Mal ha conseguido nuevos adeptos y prepara nuevas maniobras para evitar que el elegido pueda completar su misión. Haigol debe ganarse la confianza del campesino, mantener la moral alta y ofrecerle un regalo… pero la Orden del Mal quiere arrebatarle toda la esperanza.</p>
                                     <p>Por otro lado, Donald se siente cada vez más cerca de la magia. La Luz comienza a crecer en su interior. Su poder será lo único que le salvará de caer en las sombras del Mal.</p>
                                 </div>
@@ -111,7 +88,7 @@
                             <div class="book-meta">
                                 <span class="star-rating" data-rating="5.0" aria-label="5 de 5 estrellas"></span>
                                 <span class="rating-text">5/5</span>
-                                <a href="https://comicstores.es/libro/las-sombras-del-mal_195900" class="buy-link" target="_blank">Comprar</a>
+                                <a href="https://comicstores.es/libro/las-sombras-del-mal_195900" class="buy-link" target="_blank" rel="noopener noreferrer">Comprar</a>
                             </div>
                             <div class="book-video-wrapper">
                                 <a href="https://www.youtube.com/watch?v=ciIKTyzYPow" target="_blank" rel="noopener noreferrer" class="video-thumbnail-link">
@@ -122,9 +99,9 @@
                     </div>
 
                     <!-- Libro 3 -->
-                    <div class="book-slide">
+                    <div class="book-slide" role="group" aria-roledescription="diapositiva" aria-label="Libro III: Ser Fuego de Dragón" tabindex="0">
                         <div class="book-cover-wrapper">
-                            <img src="assets/images/portadas/Ser-fuego-de-dragon.webp" alt="Portada del tercer libro">
+                            <img src="assets/images/portadas/Ser-fuego-de-dragon.webp" alt="Portada de Ser Fuego de Dragón">
                         </div>
                         <div class="book-details">
                             <span class="book-number">Libro III (Final de la saga)</span>
@@ -133,7 +110,7 @@
                                 <p class="book-sinopsis-short">
                                     Donald Talonne descubrió su destino en “El misterio del Bosque Gris” y se vio atrapado en sus más temidas pesadillas en “Las Sombras del Mal”. Ahora continúa su viaje hacia la Isla Nublada, donde le espera el último dragón azul.
                                 </p>
-                                <div id="more-3" class="fulltext" hidden>
+                                <div id="more-3" class="fulltext" hidden aria-live="polite">
                                     <p>El mundo observa conmocionado el crecimiento del árbol de las flores negras. En las ramas, que alcanzan ya las nubes, se aprecian oscuros bultos palpitantes.</p>
                                     <p>Nuestros protagonistas tomarán senderos distintos. Ronald se prepara para la batalla con el ejército de Edward bajo la tutela del general Dusk. Donald, junto a Haigol, llega a la Isla Nublada donde le aguarda el dragón azul, pero se encontrará con algo inesperado.</p>
                                     <p>Las criaturas mágicas de Tartamian salen de sus cuevas, madrigueras y bosques; han oído la voz de alarma. Si no unen fuerzas con los magos, no habrá futuro para nadie.</p>
@@ -143,7 +120,7 @@
                             <div class="book-meta">
                                 <span class="star-rating" data-rating="5.0" aria-label="5 de 5 estrellas"></span>
                                 <span class="rating-text">5/5</span>
-                                <a href="https://comicstores.es/libro/el-arbol-de-las-flores-negras-iii-ser-fuego-de-dragon_552747" class="buy-link" target="_blank">Comprar</a>
+                                <a href="https://comicstores.es/libro/el-arbol-de-las-flores-negras-iii-ser-fuego-de-dragon_552747" class="buy-link" target="_blank" rel="noopener noreferrer">Comprar</a>
                             </div>
                             <div class="book-video-wrapper">
                                 <a href="https://www.verkami.com/projects/31397-ser-fuego-de-dragon-desenlace-de-la-trilogia-el-arbol-de-las-flores-negras" target="_blank" rel="noopener noreferrer" class="video-thumbnail-link">
@@ -161,45 +138,36 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DISCO (Blog en progreso) -->
-    <section id="disco" class="blog-section">
+    <!-- BLOGS -->
+    <section id="blogs" class="blog-section">
         <div class="container">
-            <h2 class="section-title">Disco de la Trilogía</h2>
-            <p>🎸 <em>(EN PROGRESO)</em> Próximamente iré publicando aquí los avances sobre la banda sonora original inspirada en El Árbol de las Flores Negras.</p>
-            <a href="blog/disco/" class="btn-blog">
-                <span class="btn-char left">&lt;  </span>
-                <span class="btn-text">MUY PRONTO</span>
-                <span class="btn-char right">  &gt;</span>
-            </a>
-        </div>
-    </section>
-
-    <!-- SECCIÓN LA QUINTA ESSÈNCIA (Blog en progreso) -->
-    <section id="essencia" class="blog-section">
-        <div class="container">
-            <h2 class="section-title">La Quinta Essència</h2>
-            <p>🎲 <em>(EN PROGRÉS)</em> En aquest espai compartiré el procés del joc de taula en el que porto
-                més d'un any treballant.</p>
-            <a href="blog/essencia/" class="btn-blog">
-                <span class="btn-char left">&lt;  </span>
-                <span class="btn-text">ACCEDEIX AL BLOG</span>
-                <span class="btn-char right">  &gt;</span>
-            </a>
-            <a href="https://marcramos.github.io/proleg-interactiu/" class="btn-blog" target="_blank">
-                <span class="btn-char left">&lt;  </span>
-                <span class="btn-text">ACCEDEIX AL PRÒLEG INTERACTIU</span>
-                <span class="btn-char right">  &gt;</span>
-            </a>
-            
+            <div class="hero-banner">
+                <div class="hero-banner-content">
+                    <h3 class="hero-banner-heading">Blogs en marcha ✍️</h3>
+                    <p class="hero-banner-text">
+                        Ya están publicadas las primeras entradas. Sigue el progreso de los proyectos:
+                    </p>
+                    <div class="hero-banner-btns">
+                        <a href="blog/disco/" class="btn-blog">
+                            <span class="btn-char left">&lt;  </span>
+                            <span class="btn-text">BLOG DISCO 🎸</span>
+                            <span class="btn-char right">  &gt;</span>
+                        </a>
+                        <a href="blog/essencia/" class="btn-blog">
+                            <span class="btn-char left">&lt;  </span>
+                            <span class="btn-text">LA QUINTA ESSÈNCIA ⚗️</span>
+                            <span class="btn-char right">  &gt;</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p>© <span id="current-year"></span> Marc Ramos Bruach - Saga "El Árbol de las Flores Negras". Todos los derechos reservados.</p>
-            <p class="footer-credits">Diseño inspirado en la oscuridad de la magia antigua.</p>
-            
+            <p>© <span id="current-year"></span> Marc Ramos Bruach - Saga "El Árbol de las Flores Negras". Todos los derechos reservados.</p>            
         </div>
     </footer>
 
