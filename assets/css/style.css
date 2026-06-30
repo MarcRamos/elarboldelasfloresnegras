@@ -680,6 +680,7 @@ footer {
     border: 1px solid var(--dragon-fire);
     padding: 8px 16px;
     border-radius: 4px;
+    font-weight: 600;
     text-decoration: none;
     transition: 0.3s;
 }
