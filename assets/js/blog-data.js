@@ -1,6 +1,13 @@
 // /assets/js/blog-data.js (generado automáticamente por script.py)
 var articulosDisco = [
     {
+        "titulo": "Las raíces del disco",
+        "fecha": "2026-07-03",
+        "url": "posts/disco-07-2026-2.html",
+        "categoria": "Creación, Música",
+        "resumen": "Cuando la euforia del primer encuentro se asentó, llegó el momento de planificar. Es una tarea difícil aunque técnicamente se trate de 'coser y cantar'."
+    },
+    {
         "titulo": "Cuando el metal encontró la trilogía",
         "fecha": "2026-06-19",
         "url": "posts/disco-06-2026-1.html",
