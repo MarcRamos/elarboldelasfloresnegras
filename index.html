@@ -211,30 +211,65 @@
             const track = document.getElementById('carouselTrack');
             const prevBtn = document.querySelector('.carousel-btn.prev');
             const nextBtn = document.querySelector('.carousel-btn.next');
-            const slideWidth = () => track.clientWidth;
+
+            let cachedSlideWidth = track.clientWidth;
+            let cachedMaxScroll = track.scrollWidth - cachedSlideWidth;
+
+            function recalcCache() {
+                cachedSlideWidth = track.clientWidth;
+                cachedMaxScroll = track.scrollWidth - cachedSlideWidth;
+                updateArrows();
+            }
 
             function updateArrows() {
                 const scrollLeft = track.scrollLeft;
-                const maxScroll = track.scrollWidth - track.clientWidth;
-                // Deshabilitar si está al principio o al final (con pequeño margen)
                 prevBtn.disabled = scrollLeft <= 5;
-                nextBtn.disabled = scrollLeft >= maxScroll - 5;
+                nextBtn.disabled = scrollLeft >= cachedMaxScroll - 5;
             }
 
             prevBtn.addEventListener('click', () => {
-                track.scrollBy({ left: -slideWidth(), behavior: 'smooth' });
+                track.scrollBy({ left: -cachedSlideWidth, behavior: 'smooth' });
             });
             nextBtn.addEventListener('click', () => {
-                track.scrollBy({ left: slideWidth(), behavior: 'smooth' });
+                track.scrollBy({ left: cachedSlideWidth, behavior: 'smooth' });
             });
 
             track.addEventListener('scroll', updateArrows);
-            window.addEventListener('resize', updateArrows);
+            window.addEventListener('resize', recalcCache);
             updateArrows(); // Estado inicial
             // Inicializar estrellas ⭐
             document.querySelectorAll('.star-rating').forEach(star => {
                 star.style.setProperty('--rating', parseFloat(star.dataset.rating) || 0);
             });
+
+            // Navigation dots inside each cover wrapper
+            const coverWrappers = document.querySelectorAll('.book-cover-wrapper');
+            const slideCount = document.querySelectorAll('.book-slide').length;
+            coverWrappers.forEach((wrapper) => {
+                const dotsDiv = document.createElement('div');
+                dotsDiv.className = 'carousel-dots';
+                for (let i = 0; i < slideCount; i++) {
+                    const dot = document.createElement('button');
+                    dot.className = 'carousel-dot';
+                    dot.setAttribute('aria-label', `Ir a la diapositiva ${i + 1}`);
+                    dot.addEventListener('click', () => {
+                        track.scrollTo({ left: i * cachedSlideWidth, behavior: 'smooth' });
+                    });
+                    dotsDiv.appendChild(dot);
+                }
+                wrapper.after(dotsDiv);
+            });
+
+            function updateDots() {
+                const idx = Math.round(track.scrollLeft / cachedSlideWidth);
+                document.querySelectorAll('.book-slide').forEach((slide) => {
+                    const dots = slide.querySelectorAll('.carousel-dot');
+                    dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+                });
+            }
+
+            track.addEventListener('scroll', updateDots);
+            updateDots();
         });
     </script>
 </body>

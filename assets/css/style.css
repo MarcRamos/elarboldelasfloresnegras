@@ -394,6 +394,39 @@ section { padding: 80px 0; }
     z-index: 20;
 }
 
+/* Navigation dots below each cover (mobile only) */
+.carousel-dots {
+    display: none;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 3px;
+    z-index: 5;
+}
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--mystic-purple);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: background 0.3s, border-color 0.3s, transform 0.3s;
+    padding: 0;
+}
+.carousel-dot.active {
+    background: rgb(var(--crimson-rgb));
+    border-color: rgb(var(--crimson-rgb));
+    transform: scale(1.25);
+}
+.carousel-dot:focus-visible {
+    outline: 2px solid rgb(var(--crimson-rgb));
+    outline-offset: 2px;
+}
+@media (max-width: 768px) {
+    .carousel-dots {
+        display: flex;
+    }
+}
+
 /* ===== BLOGS (Disco y La Quinta Essència) ===== */
 .blog-section {
     background: var(--dark-slate);
@@ -958,8 +991,15 @@ footer {
     .book-slide { padding: 10px 5px 30px; }
     .book-cover-wrapper { flex: 0 0 auto; width: min(230px, 65%); height: auto; aspect-ratio: 2/3; }
     
-    /* Ocultar flechas en móvil */
+    /* Ocultar flechas y barra de desplazamiento en móvil */
     .carousel-btn {
+        display: none;
+    }
+    .carousel-track {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .carousel-track::-webkit-scrollbar {
         display: none;
     }
     .read-more-btn,
