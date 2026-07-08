@@ -6,7 +6,7 @@
     <link rel="icon" type="image/x-icon" href="../../../favicon_io/favicon.ico">
     <title>Las raíces del disco - El Árbol de las Flores Negras</title>
     <script>!function(){var t=localStorage.getItem('theme-preference');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');else if(t==='light')document.documentElement.setAttribute('data-theme','light');else if(window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark')}();</script>
-    <link rel="stylesheet" href="../../../assets/css/style.css">
+    <link rel="stylesheet" href="../../../assets/css/style.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet"></noscript>
 </head>
@@ -33,7 +33,7 @@
                 <p>Cuando la euforia del primer encuentro se asentó, llegó el momento de planificar. Y planificar un disco basado en una trilogía de fantasía no es exactamente coser y cantar.</p>
 <p>Edmon, a la guitarra, e Isaac, al bajo, se encargarían de la música. Ellos ya tenían experiencia: su proyecto anterior les había dado contactos, soltura y la seguridad de saber que eran capaces de hacerlo. Su plan era trabajar con pistas MIDI, construir los temas desde cero y, cuando cada canción lo pidiera, buscar a las personas adecuadas para darle vida. Cantantes, instrumentistas, lo que hiciera falta.</p>
 <p>Yo me encargaría de la letra. Mi terreno siempre ha sido la palabra, la historia, los personajes. De mis manos saldrían las canciones que ellos convertirían en música.</p>
-<figure class="article-figure article-figure--large"><img class="article-image" src="../../../assets/images/blog/concert-bucle.webp" srcset="../../../assets/images/blog/concert-bucle-480w.webp 480w, ../../../assets/images/blog/concert-bucle-768w.webp 768w, ../../../assets/images/blog/concert-bucle-1200w.webp 1200w" sizes="(max-width: 800px) 100vw, 440px" loading="eager" alt="Concierto Bucle"/><figcaption class="article-figcaption">Después de un concierto de su banda "Bucle" en Barcelona. ¿Quizás se tocará algún tema de este disco en vivo alguna vez? ¡¡Ay, ojalá!!</figcaption></figure>
+<figure class="article-figure article-figure--large"><img class="article-image" src="../../../assets/images/blog/concert-bucle.webp" srcset="../../../assets/images/blog/concert-bucle-480w.webp 480w, ../../../assets/images/blog/concert-bucle-768w.webp 768w, ../../../assets/images/blog/concert-bucle-1200w.webp 1200w" sizes="(max-width: 800px) 100vw, 440px" loading="eager" fetchpriority="high" alt="Concierto Bucle"/><figcaption class="article-figcaption">Después de un concierto de su banda "Bucle" en Barcelona. ¿Quizás se tocará algún tema de este disco en vivo alguna vez? ¡¡Ay, ojalá!!</figcaption></figure>
 <p>Pronto surgió la primera gran decisión: ¿un disco para toda la trilogía o un disco por libro? La ambición nos empuja a lo segundo. Un proyecto por libro, tres discos, una banda sonora completa para cada novela. Pero todavía es pronto para decidirlo. De momento, lo importante era empezar por el principio: las canciones.</p>
 <p>¿De qué tratarían? Esa fue la primera conversación seria. ¿Cómo conviertes cientos de páginas en un puñado de canciones? ¿Qué momentos merecen tener música? ¿Qué escenas piden a gritos ser cantadas?</p>
 <p>Una cosa tengo clara: en el primer disco tiene que estar el himno de Forbbings. Es una de las canciones populares que aparecen en la trilogía, y la letra será prácticamente la misma que escribí en su momento. Pero cobrará vida de una forma completamente nueva a través del disco. Personalmente, es de las canciones que más ganas tengo de que se grabe. </p>
@@ -102,7 +102,7 @@ y ya se ha acabado este canto
     </footer>
 
     <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js').catch(()=>{})}</script>
-    <script src="../../../assets/js/theme.js"></script>
-    <script src="../../../assets/js/current-year.js"></script>
+    <script src="../../../assets/js/theme.js" defer></script>
+    <script>document.addEventListener('DOMContentLoaded',function(){var e=document.getElementById('current-year');e&&(e.textContent=new Date().getFullYear())});</script>
 </body>
 </html>

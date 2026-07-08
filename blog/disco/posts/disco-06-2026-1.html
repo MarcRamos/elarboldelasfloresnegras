@@ -6,7 +6,7 @@
     <link rel="icon" type="image/x-icon" href="../../../favicon_io/favicon.ico">
     <title>Cuando el metal encontró la trilogía - El Árbol de las Flores Negras</title>
     <script>!function(){var t=localStorage.getItem('theme-preference');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');else if(t==='light')document.documentElement.setAttribute('data-theme','light');else if(window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark')}();</script>
-    <link rel="stylesheet" href="../../../assets/css/style.css">
+    <link rel="stylesheet" href="../../../assets/css/style.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet"></noscript>
 </head>
@@ -38,7 +38,7 @@
 <p>No lo dudé ni un segundo.</p>
 <p>Quedamos en su estudio de grabación. Pusieron su proyecto anterior y lo escuché con atención. Se notaba que había horas, esfuerzo, ganas e ilusión detrás de cada nota. Y lo que fue más importante: sentí que tenían unas ganas enormes de componer canciones para mi historia.</p>
 <div style="text-align: center; width:100%;">
-    <figure class="article-figure article-figure--large"><img class="article-image" src="../../../assets/images/blog/foto-grupo-libros-logo.webp" srcset="../../../assets/images/blog/foto-grupo-libros-logo-480w.webp 480w, ../../../assets/images/blog/foto-grupo-libros-logo-768w.webp 768w" sizes="(max-width: 800px) 100vw, 440px" loading="eager" alt="Grupo al completo en el estudio ni2records"/><figcaption class="article-figcaption">El día que nos reunimos para empezar el proyecto en marzo 2026 en el estudio ni2records.</figcaption></figure>
+    <figure class="article-figure article-figure--large"><img class="article-image" src="../../../assets/images/blog/foto-grupo-libros-logo.webp" srcset="../../../assets/images/blog/foto-grupo-libros-logo-480w.webp 480w, ../../../assets/images/blog/foto-grupo-libros-logo-768w.webp 768w" sizes="(max-width: 800px) 100vw, 440px" loading="eager" fetchpriority="high" alt="Grupo al completo en el estudio ni2records"/><figcaption class="article-figcaption">El día que nos reunimos para empezar el proyecto en marzo 2026 en el estudio ni2records.</figcaption></figure>
 </div>
 <p>Ahora hace diez años que publiqué el primer libro de la trilogía. <em>¡Diez años!</em> La idea de añadirle una banda sonora de metal épico me pareció perfecta. Tras más de un año también trabajando en el juego de mesa, ya sentía que volvía a surgir la creatividad. Todo girando alrededor del mismo universo, pero de formas muy distintas: narrativa, juego de mesa y música.</p>
 <p>Para mí esto es mucho más que un proyecto musical. Es una oportunidad de aprender a escribir canciones. de revisitar la historia que escribí hace tantos años. De revivir momentos con los personajes y, sobre todo, desde los personajes. De verlos crecer en un formato nuevo, de sentir cómo resuenan sus emociones.</p>
@@ -59,7 +59,7 @@
     </footer>
 
     <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js').catch(()=>{})}</script>
-    <script src="../../../assets/js/theme.js"></script>
-    <script src="../../../assets/js/current-year.js"></script>
+    <script src="../../../assets/js/theme.js" defer></script>
+    <script>document.addEventListener('DOMContentLoaded',function(){var e=document.getElementById('current-year');e&&(e.textContent=new Date().getFullYear())});</script>
 </body>
 </html>

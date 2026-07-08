@@ -6,7 +6,7 @@
     <link rel="icon" type="image/x-icon" href="../../favicon_io/favicon.ico">
     <title>Blog La Quinta Essència - El Árbol de las Flores Negras</title>
     <script>!function(){var t=localStorage.getItem('theme-preference');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');else if(t==='light')document.documentElement.setAttribute('data-theme','light');else if(window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark')}();</script>
-    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/style.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet"></noscript>
 </head>
@@ -68,9 +68,9 @@
     </footer>
 
     <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js').catch(()=>{})}</script>
-    <script src="../../assets/js/theme.js"></script>
-    <script src="../../assets/js/blog-data.js"></script>
-    <script src="../../assets/js/blog-manager.js"></script>
-    <script src="../../assets/js/current-year.js"></script>
+    <script src="../../assets/js/theme.js" defer></script>
+    <script src="../../assets/js/blog-data.js" defer></script>
+    <script src="../../assets/js/blog-manager.js" defer></script>
+    <script>document.addEventListener('DOMContentLoaded',function(){var e=document.getElementById('current-year');e&&(e.textContent=new Date().getFullYear())});</script>
 </body>
 </html>

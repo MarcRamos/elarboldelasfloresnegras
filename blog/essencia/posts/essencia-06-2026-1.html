@@ -6,7 +6,7 @@
     <link rel="icon" type="image/x-icon" href="../../../favicon_io/favicon.ico">
     <title>Pròleg del joc - El Árbol de las Flores Negras</title>
     <script>!function(){var t=localStorage.getItem('theme-preference');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');else if(t==='light')document.documentElement.setAttribute('data-theme','light');else if(window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark')}();</script>
-    <link rel="stylesheet" href="../../../assets/css/style.css">
+    <link rel="stylesheet" href="../../../assets/css/style.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet"></noscript>
 </head>
@@ -36,7 +36,7 @@
                 <!-- Intervenció del Esquirol Informador (estilo directo) -->
                 <div class="orange-bg">
                     <p>Ah, honorables alquimistes, mestres de la substància i els encanteris, aplegueu-vos, aplegueu-vos, que us porto un missatge molt important. Això… (aixeca el pergamí amb esforç) això és una veu des de terres llunyanes, és essencial que m'escolteu.</p>
-                    <img src="../../../assets/images/blog/esquirol-informador.jpeg" srcset="../../../assets/images/blog/esquirol-informador-480w.webp 480w, ../../../assets/images/blog/esquirol-informador-768w.webp 768w" sizes="(max-width: 800px) 100vw, 720px" loading="eager" alt="Esquirol Informador" class="img-esquirol">
+                    <img src="../../../assets/images/blog/esquirol-informador.jpeg" srcset="../../../assets/images/blog/esquirol-informador-480w.webp 480w, ../../../assets/images/blog/esquirol-informador-768w.webp 768w" sizes="(max-width: 800px) 100vw, 720px" loading="eager" fetchpriority="high" alt="Esquirol Informador" class="img-esquirol">
                     <p>Em dic Esquirol Informador i la mestra Elyria es troba en una situació més que complicada. Quan la vostra mestra us va deixar el llibre de conjurs de la Quinta Essència, ho va fer pensant en un dia com el d’avui. S’ha obert tot sol a vosaltres arribat el moment, i en les seves pàgines, vet aquí, s’ha començat a escriure el vostre destí. Ara us he de transmetre el missatge que la mestra Elyria m'ha comunicat, doncs corre un gran perill:
                 </div>
                 <!-- Carta de la maestra Elyria -->
@@ -75,7 +75,7 @@
     </footer>
 
     <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js').catch(()=>{})}</script>
-    <script src="../../../assets/js/theme.js"></script>
-    <script src="../../../assets/js/current-year.js"></script>
+    <script src="../../../assets/js/theme.js" defer></script>
+    <script>document.addEventListener('DOMContentLoaded',function(){var e=document.getElementById('current-year');e&&(e.textContent=new Date().getFullYear())});</script>
 </body>
 </html>

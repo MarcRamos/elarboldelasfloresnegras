@@ -1,8 +1,7 @@
 const CACHE = 'eafn-v1';
 const STATIC_ASSETS = [
-  '/assets/css/style.css',
+  '/assets/css/style.min.css',
   '/assets/js/theme.js',
-  '/assets/js/current-year.js',
   '/assets/js/blog-data.js',
   '/assets/js/blog-manager.js'
 ];

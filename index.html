@@ -6,7 +6,7 @@
     <link rel="icon" type="image/x-icon" href="favicon_io/favicon.ico">
     <title>El Árbol de las Flores Negras - Trilogía de Fantasía Oscura</title>
     <script>!function(){var t=localStorage.getItem('theme-preference');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');else if(t==='light')document.documentElement.setAttribute('data-theme','light');else if(window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark')}();</script>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -43,7 +43,7 @@
                             <img src="assets/images/portadas/El-misterio-del-Bosque-Gris.webp"
                                  srcset="assets/images/portadas/El-misterio-del-Bosque-Gris-480w.webp 480w, assets/images/portadas/El-misterio-del-Bosque-Gris-768w.webp 768w"
                                  sizes="(max-width: 768px) 100vw, 400px"
-                                 loading="eager"
+                                 loading="eager" fetchpriority="high"
                                  alt="Portada de El Misterio del Bosque Gris">
                         </div>
                         <div class="book-details">
@@ -186,8 +186,8 @@
 
     <!-- SCRIPTS -->
     <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js').catch(()=>{})}</script>
-    <script src="assets/js/theme.js"></script>
-    <script src="assets/js/current-year.js"></script>
+    <script src="assets/js/theme.js" defer></script>
+    <script>document.addEventListener('DOMContentLoaded',function(){var e=document.getElementById('current-year');e&&(e.textContent=new Date().getFullYear())});</script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Botones "Leer más"
