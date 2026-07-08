@@ -250,7 +250,7 @@ section { padding: 80px 0; }
     text-transform: uppercase;
     margin-bottom: 10px;
 }
-.book-details h3 {
+.book-details h2, .book-details h3 {
     font-size: 2.2rem; margin-bottom: 20px; border-bottom: 1px solid var(--mystic-purple);
     padding-bottom: 10px;
 }
@@ -982,7 +982,7 @@ footer {
     
     .book-slide { flex-direction: column; gap: 30px; padding: 10px; }
     .book-cover-wrapper { flex: 0 0 auto; width: 250px; height: 375px; margin: 0 auto; }
-    .book-details h3 { font-size: 1.8rem; }
+    .book-details h2, .book-details h3 { font-size: 1.8rem; }
     
     .hero-banner { flex-direction: column; text-align: center; padding: 20px; }
     .hero-banner-content { text-align: center; }
@@ -1025,7 +1025,7 @@ footer {
 
 @media (min-width: 769px) and (max-width: 1024px) {
     .book-cover-wrapper { flex: 0 0 250px; height: 375px; }
-    .book-details h3 { font-size: 2rem; }
+    .book-details h2, .book-details h3 { font-size: 2rem; }
     .main-title { font-size: 3.5rem; }
 }
 
@@ -1246,7 +1246,6 @@ button:focus-visible,
   font-size: 0.75rem;
   color: var(--smoke-gray);
   font-family: 'Raleway', sans-serif;
-  opacity: 0.7;
   pointer-events: none;
   white-space: nowrap;
 }
