@@ -127,7 +127,7 @@ function buildArticleList(articulos, container) {
                 <span class="card-category">${art.categoria || 'General'}</span>
             </header>
             <p class="card-excerpt">${resumen}</p>
-            <a href="${art.url}" class="read-more-link">Leer más →</a>
+            <a href="${art.url}" class="read-more-link" aria-label="${art.titulo}">Leer más →</a>
         </article>`;
     });
     container.innerHTML = html;
