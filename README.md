@@ -16,7 +16,7 @@ El proyecto incluye un script en Python que convierte archivos Markdown en pági
   pip install markdown
   ```
 - Tener los siguientes archivos en la raíz del proyecto:
-  - `update_post.py` (el script generador)
+  - `tools/update_post.py` (el script generador)
   - `/templates/article-template.html` (plantilla para las entradas)
   - `/assets/js/blog-data.js` (índice de artículos, se actualizará automáticamente)
 
@@ -37,6 +37,7 @@ Aquí empieza el contenido del artículo en **Markdown**.
 **Campos del front matter:**
 - `title`: obligatorio. Título del artículo.
 - `date`: obligatorio. Fecha en formato `YYYY-MM-DD`. Determina el mes/año en la URL y la posición en el blog.
+- `description`: opcional. Resumen breve para la meta description y la preview del artículo.
 - `category`: opcional. Se muestra en la etiqueta del artículo. Si no se indica, se usará "General".
 
 ### 3. Ejecutar el script
@@ -44,17 +45,17 @@ Aquí empieza el contenido del artículo en **Markdown**.
 Abre una terminal en la raíz del proyecto y lanza:
 
 ```bash
-python update_post.py ruta/al/articulo.md --blog <disco|essencia>
+python tools/update_post.py ruta/al/articulo.md --blog <disco|essencia>
 ```
 
 **Ejemplos:**
 
 ```bash
 # Para el blog del disco
-python update_post.py ideas-banda-sonora.md --blog disco
+python tools/update_post.py articles/ideas-banda-sonora.md --blog disco
 
 # Para el blog de La Quinta Essència
-python update_post.py borrador-capitulo1.md --blog essencia
+python tools/update_post.py articles/borrador-capitulo1.md --blog essencia
 ```
 
 El argumento `--blog` es obligatorio y solo acepta `disco` o `essencia`. Si se usa otro valor, el script mostrará un error.
@@ -67,6 +68,7 @@ El argumento `--blog` es obligatorio y solo acepta `disco` o `essencia`. Si se u
   {blog}-{MM}-{YYYY}-{indice}.html
   ```
   Por ejemplo: `disco-05-2026-1.html` (primer artículo de mayo de 2026 en el blog del disco). Si ya existe otro artículo en el mismo mes y año, el índice se incrementa automáticamente.
+- La plantilla (`templates/article-template.html`) genera imágenes responsivas (`srcset`, WebP), carga asíncrona de CSS y etiquetas de meta description a partir del front matter.
 - Extrae un resumen del primer párrafo del artículo y lo guarda en `/assets/js/blog-data.js`.
 - Actualiza el archivo `/assets/js/blog-data.js` añadiendo la nueva entrada (título, fecha, URL, categoría y resumen) y lo ordena por fecha descendente.
 
@@ -83,7 +85,7 @@ Al recargar la página del blog correspondiente (`/blog/disco/` o `/blog/essenci
 
 - `--force`: Si el archivo HTML de destino ya existe, lo sobrescribe sin preguntar.
   ```bash
-  python script.py articulo.md --blog disco --force
+  python tools/update_post.py articles/articulo.md --blog disco --force
   ```
 
 ### 7. Solución de problemas comunes
@@ -95,7 +97,7 @@ Al recargar la página del blog correspondiente (`/blog/disco/` o `/blog/essenci
 | `Error: Formato de fecha inválido` | La fecha no está en formato `YYYY-MM-DD` o es una fecha imposible. |
 | El artículo no aparece en el blog | Revisa que el archivo `.md` esté bien formado y que estás ejecutando el script desde la raíz del proyecto. |
 | El archivo HTML ya existe y no se sobrescribe | Usa la opción `--force` o responde `s` cuando pregunte. |
-| El menú lateral no carga los artículos | Asegúrate de que los scripts se cargan en este orden: `/assets/js/blog-data.js`, `/assets/js/blog-manager.js`, `/assets/js/blog-scripts.js`. |
+| El menú lateral no carga los artículos | Asegúrate de que los scripts se cargan en este orden: `/assets/js/blog-data.js`, `/assets/js/blog-manager.js`. |
 
 ---
 
@@ -105,35 +107,41 @@ Al recargar la página del blog correspondiente (`/blog/disco/` o `/blog/essenci
 raíz/
 ├── index.html                      # Página principal de la trilogía
 ├── README.md
-├── update_post.py                  # Script Python
+├── AGENTS.md                       # Convenciones del proyecto
+├── sw.js                           # Service worker (cacheo estático)
+├── favicon_io/                     # Favicons
+├── articles/                       # Artículos fuente en Markdown
 ├── templates/
 │   └── article-template.html       # Plantilla para las entradas de blog
+├── tools/
+│   ├── update_post.py              # Script Python: Markdown → HTML
+│   └── optimize-images.py          # Genera variantes WebP responsivas
 ├── assets/
 │   ├── css/
-│   │   └── style.css
+│   │   ├── style.css               # CSS fuente (editar aquí)
+│   │   └── style.min.css           # CSS minificado (se sirve en producción)
 │   ├── js/
-│   │   ├── /assets/js/blog-data.js            # Datos de los artículos
-│   │   ├── /assets/js/blog-manager.js         # Gestor de navegación y listado
-│   │   └── /assets/js/blog-scripts.js         # Scroll reveal, año automático
+│   │   ├── theme.js                # Toggle claro/oscuro/sistema
+│   │   ├── blog-data.js            # Datos de los artículos
+│   │   └── blog-manager.js         # Gestor de navegación y listado
 │   └── images/
-│       ├── portadas/               # Imágenes de las portadas de los libros
+│       ├── portadas/               # Portadas de los libros
 │       │   ├── El-misterio-del-Bosque-Gris.webp
 │       │   ├── Las-sombras-del-mal.webp
 │       │   └── Ser-fuego-de-dragon.webp
-│       ├── blog/                   # Imágenes usadas en los artículos del blog
-│       │   └── ... (las subirás aquí)
-│       └── general/                # Logos, fotos de Sant Jordi, fondo
+│       ├── blog/                   # Imágenes de los artículos
+│       └── general/                # Logos, fotos, fondos
 │           ├── logo_vkm.webp
 │           ├── marc+sj26.webp
 │           └── pexels-fir-trees-1835402.jpg
 └── blog/
     ├── disco/
-    │   ├── index.html              # Página principal del blog (antes blog-disco.html)
+    │   ├── index.html              # Página principal del blog
     │   └── posts/                  # Artículos generados
     │       ├── disco-05-2025-1.html
     │       └── ...
     └── essencia/
-        ├── index.html              # Página principal del blog (antes blog-essencia.html)
+        ├── index.html              # Página principal del blog
         └── posts/
             ├── essencia-03-2026-1.html
             └── ...
