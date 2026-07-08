@@ -26,12 +26,13 @@
         </div>
     </nav>
 
+    <main>
     <!-- HERO -->
     <section id="home" class="hero">
         <div class="hero-overlay"></div>
-        <div class="hero-content">
+        <header class="hero-content">
             <h1 class="main-title">El Árbol de las <span style="color: rgb(var(--crimson-rgb)); text-shadow: 0 0 15px rgb(var(--crimson-rgb) / 0.3);">Flores Negras</span></h1>
-        </div>
+        </header>
 
         <div class="container" id="libros">
             
@@ -178,6 +179,7 @@
         </div>
     </section>
 
+    </main>
     <!-- FOOTER -->
     <footer>
         <div class="container">
@@ -238,10 +240,9 @@
             track.addEventListener('scroll', updateArrows);
             window.addEventListener('resize', recalcCache);
             updateArrows(); // Estado inicial
-            // Inicializar estrellas ⭐
-            document.querySelectorAll('.star-rating').forEach(star => {
-                star.style.setProperty('--rating', parseFloat(star.dataset.rating) || 0);
-            });
+
+            // Leer índice inicial antes de cualquier escritura DOM (evita reflow forzado)
+            const initialIdx = Math.round(track.scrollLeft / cachedSlideWidth);
 
             // Navigation dots inside each cover wrapper
             const coverWrappers = document.querySelectorAll('.book-cover-wrapper');
@@ -270,7 +271,16 @@
             }
 
             track.addEventListener('scroll', updateDots);
-            updateDots();
+            // Aplicar estado inicial con el índice guardado (sin nueva lectura geométrica)
+            document.querySelectorAll('.book-slide').forEach((slide) => {
+                const dots = slide.querySelectorAll('.carousel-dot');
+                dots.forEach((d, i) => d.classList.toggle('active', i === initialIdx));
+            });
+
+            // Inicializar estrellas ⭐ (después de todas las lecturas geométricas para evitar reflow forzado)
+            document.querySelectorAll('.star-rating').forEach(star => {
+                star.style.setProperty('--rating', parseFloat(star.dataset.rating) || 0);
+            });
         });
     </script>
 </body>
