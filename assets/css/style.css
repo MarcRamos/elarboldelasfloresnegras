@@ -986,6 +986,7 @@ footer {
     
     .hero-banner { flex-direction: column; text-align: center; padding: 20px; }
     .hero-banner-content { text-align: center; }
+    .hero-banner-btns { justify-content: center; }
     .hero .container#libros { padding: 0; max-width: 100%; }
     .hero .carousel-wrapper { max-width: 100%; }
     .book-slide { padding: 10px 5px 30px; }

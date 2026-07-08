@@ -105,7 +105,7 @@
         </div>
     </footer>
 
-    <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js')}</script>
+    <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js').catch(()=>{})}</script>
     <script src="../../../assets/js/theme.js"></script>
     <script src="../../../assets/js/current-year.js"></script>
 </body>
