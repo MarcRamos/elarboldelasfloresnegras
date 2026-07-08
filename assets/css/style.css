@@ -1041,6 +1041,13 @@ footer {
     .main-title { font-size: 3.5rem; }
 }
 
+/* Desktop: full text visible, hide "Leer más" button */
+@media (min-width: 769px) {
+    .read-more-btn { display: none; }
+    .fulltext { display: block; }
+    .fulltext[hidden] { display: block; }
+}
+
 /* Accessibility fixes */
 /* Para todos los elementos interactivos */
 a:focus-visible,
