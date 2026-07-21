@@ -143,6 +143,77 @@ h1, h2, h3, .logo, .book-number {
     text-underline-offset: 5px;
 }
 
+/* ===== DROPDOWN BLOGS ===== */
+.nav-dropdown {
+    position: relative;
+    display: inline-block;
+}
+.nav-dropdown-toggle {
+    background: none;
+    border: none;
+    color: var(--smoke-gray);
+    margin: 0 18px;
+    font-weight: 400;
+    transition: color 0.3s;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 0;
+}
+.nav-dropdown-toggle::after {
+    content: ' ▾';
+    font-size: 1.3rem;
+    opacity: 0.6;
+    margin-left: 2px;
+}
+.nav-dropdown-toggle:hover,
+.nav-dropdown-toggle:focus-visible {
+    color: rgb(var(--crimson-rgb));
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
+}
+.nav-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 8px 0;
+    min-width: 200px;
+    z-index: 1001;
+    box-shadow: 0 8px 24px var(--shadow-color);
+}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown-toggle:focus-visible + .nav-dropdown-menu,
+.nav-dropdown-menu:hover {
+    display: block;
+}
+.nav-dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    color: var(--smoke-gray);
+    text-decoration: none;
+    font-size: 0.85rem;
+    text-transform: none;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    transition: background 0.2s, color 0.2s;
+    margin: 0;
+}
+.nav-dropdown-menu a:hover {
+    color: rgb(var(--crimson-rgb));
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    background: transparent;
+}
+
 /* ===== SIDEBAR (enlaces del árbol de navegación) ===== */
 .nav-article a:hover,
 .nav-article a:focus-visible {
@@ -1008,6 +1079,15 @@ footer {
         display: inline-block;
         margin: 8px 12px;
         font-size: 0.85rem;
+    }
+    .nav-dropdown-toggle {
+        margin: 8px 12px;
+        font-size: 0.85rem;
+    }
+    .nav-dropdown-menu {
+        left: 50%;
+        transform: translateX(-50%);
+        min-width: 180px;
     }
     .theme-toggle {
         top: 12px;

@@ -19,7 +19,13 @@
         <div class="nav-container">
             <div class="nav-links">
                 <a href="#home">Inicio</a>
-                <a href="#blogs">Blogs</a>
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Blogs</button>
+                    <div class="nav-dropdown-menu">
+                        <a href="blog/essencia/index.html">La Quinta Essència</a>
+                        <a href="blog/disco/index.html">Disco de la Trilogia</a>
+                    </div>
+                </div>
             </div>
             <button id="theme-toggle" class="theme-toggle" aria-label="Tema: Auto" title="Tema: Auto (clic para cambiar)"></button>
             <span id="theme-label" class="theme-label">Auto</span>
