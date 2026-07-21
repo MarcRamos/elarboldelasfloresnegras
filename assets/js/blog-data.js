@@ -18,6 +18,13 @@ var articulosDisco = [
 
 var articulosEssencia = [
     {
+        "titulo": "Quants daus es necessiten per crear un joc així?",
+        "fecha": "2026-07-20",
+        "url": "posts/essencia-07-2026-1.html",
+        "categoria": "Daus, Regles",
+        "resumen": "Els daus han sigut des del primer dia una part fonamental del joc. Encara que els he anat fent servir per a coses molt diverses al llarg del procés: unes funcions han quedat obsoletes, altres les he a..."
+    },
+    {
         "titulo": "De la graella a les cartes",
         "fecha": "2026-06-28",
         "url": "posts/essencia-06-2026-3.html",

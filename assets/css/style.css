@@ -84,7 +84,7 @@
 body {
     background-color: var(--deep-black);
     color: var(--pure-white);
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.7;
     font-weight: 300;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -263,7 +263,7 @@ section { padding: 80px 0; }
     background: transparent; color: var(--pure-white);
     border: 1px solid rgb(var(--crimson-rgb)); padding: 10px 28px;
     font-size: 0.9rem; font-weight: 500; letter-spacing: 2px;
-    cursor: pointer; transition: all 0.3s; font-family: 'Raleway', sans-serif;
+    cursor: pointer; transition: all 0.3s;     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase; margin: 10px 0 20px; position: relative;
 }
 .read-more-btn::after {
@@ -284,6 +284,43 @@ section { padding: 80px 0; }
     box-shadow: none;
 }
 .buy-link:hover { background: rgb(var(--crimson-rgb)); border-color: rgb(var(--crimson-rgb)); color: #fff; box-shadow: none; }
+
+/* ===== RATING BOX ===== */
+.rating-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 8px 16px;
+}
+.rating-box .star-rating {
+    --star-size: 1.4rem;
+}
+.rating-text {
+    color: var(--pure-white);
+    font-size: 1.1rem;
+    font-weight: 600;
+    vertical-align: middle;
+}
+
+/* ===== GOODREADS ICON ===== */
+.goodreads-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    transition: opacity 0.3s;
+    vertical-align: middle;
+}
+.goodreads-link:hover {
+    opacity: 0.75;
+}
+.goodreads-icon {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
 
 /* ===== SISTEMA DE ESTRELLAS DINÁMICAS ===== */
 .star-rating {
@@ -312,13 +349,6 @@ section { padding: 80px 0; }
     background: var(--star-color);
     -webkit-mask: inherit;
     mask: inherit;
-}
-
-.rating-text {
-    color: var(--pure-white);
-    font-size: 0.95rem;
-    margin-left: 8px;
-    vertical-align: middle;
 }
 
 /* Video thumbnail */
@@ -896,7 +926,7 @@ footer {
     background: none;
     border: none;
     color: var(--pure-white);
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 0.95rem;
     cursor: pointer;
     transition: background 0.2s;
@@ -1240,7 +1270,7 @@ button:focus-visible,
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   line-height: 1;
   padding: 0;
   box-shadow: none;
@@ -1264,7 +1294,7 @@ button:focus-visible,
   transform: translateY(-50%);
   font-size: 0.75rem;
   color: var(--smoke-gray);
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   pointer-events: none;
   white-space: nowrap;
 }
