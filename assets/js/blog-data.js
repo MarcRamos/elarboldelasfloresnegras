@@ -18,18 +18,25 @@ var articulosDisco = [
 
 var articulosEssencia = [
     {
-        "titulo": "Quants daus es necessiten per crear un joc així?",
-        "fecha": "2026-07-20",
-        "url": "posts/essencia-07-2026-1.html",
-        "categoria": "Daus, Regles",
-        "resumen": "Els daus han sigut des del primer dia una part fonamental del joc. Encara que els he anat fent servir per a coses molt diverses al llarg del procés: unes funcions han quedat obsoletes, altres les he a..."
-    },
-    {
         "titulo": "Idees darrere del joc",
         "fecha": "2026-08-15",
         "url": "posts/essencia-08-2026-1.html",
         "categoria": "Creació, Regles",
         "resumen": "Hi ha decisions de disseny que surten de la intuïció i d'altres que són el resultat de provar i ajustar fins que ressonen. En les entrades anteriors vaig parlar dels orígens, de la graella, del dau d'..."
+    },
+    {
+        "titulo": "De tornada, amb el concurs a la vista",
+        "fecha": "2026-08-15",
+        "url": "posts/essencia-08-2026-2.html",
+        "categoria": "Creació, Procés",
+        "resumen": "Avui he tornat de vacances. I tornar de vacances té això: que arribes amb la maleta plena de roba bruta, el cap ple d'idees noves i una llista de coses pendents que mentre estaves fora semblava que es..."
+    },
+    {
+        "titulo": "Quants daus es necessiten per crear un joc així?",
+        "fecha": "2026-07-20",
+        "url": "posts/essencia-07-2026-1.html",
+        "categoria": "Daus, Regles",
+        "resumen": "Els daus han sigut des del primer dia una part fonamental del joc. Encara que els he anat fent servir per a coses molt diverses al llarg del procés: unes funcions han quedat obsoletes, altres les he a..."
     },
     {
         "titulo": "De la graella a les cartes",

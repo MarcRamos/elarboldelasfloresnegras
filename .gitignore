@@ -7,3 +7,4 @@ articles/
 update_post.py
 templates/
 AGENTS.md
+*.exe
