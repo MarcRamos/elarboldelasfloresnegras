@@ -25,6 +25,13 @@ var articulosEssencia = [
         "resumen": "Els daus han sigut des del primer dia una part fonamental del joc. Encara que els he anat fent servir per a coses molt diverses al llarg del procés: unes funcions han quedat obsoletes, altres les he a..."
     },
     {
+        "titulo": "Idees darrere del joc",
+        "fecha": "2026-08-15",
+        "url": "posts/essencia-08-2026-1.html",
+        "categoria": "Creació, Regles",
+        "resumen": "Hi ha decisions de disseny que surten de la intuïció i d'altres que són el resultat de provar i ajustar fins que ressonen. En les entrades anteriors vaig parlar dels orígens, de la graella, del dau d'..."
+    },
+    {
         "titulo": "De la graella a les cartes",
         "fecha": "2026-06-28",
         "url": "posts/essencia-06-2026-3.html",
