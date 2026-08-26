@@ -18,6 +18,13 @@ var articulosDisco = [
 
 var articulosEssencia = [
     {
+        "titulo": "\"Que quedi ben clar\"",
+        "fecha": "2026-08-25",
+        "url": "posts/essencia-08-2026-3.html",
+        "categoria": "Creació, Regles",
+        "resumen": "Queda menys d'una setmana. Les proves finals ja estan fetes, els retocs al disseny dels components del joc també, i el manual pràcticament està tancat. Estic content del resultat i tinc ganes de final..."
+    },
+    {
         "titulo": "Idees darrere del joc",
         "fecha": "2026-08-15",
         "url": "posts/essencia-08-2026-1.html",
