@@ -8,3 +8,5 @@ update_post.py
 templates/
 AGENTS.md
 *.exe
+node_modules/
+package*
