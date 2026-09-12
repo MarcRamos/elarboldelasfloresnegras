@@ -1378,3 +1378,22 @@ button:focus-visible,
   pointer-events: none;
   white-space: nowrap;
 }
+
+/* Caixa de clarificació — per a notes de regles i daus */
+.note-bg {
+    background: rgba(74, 44, 93, 0.25);
+    border: 1px solid var(--mystic-purple);
+    border-left: 5px solid rgb(var(--crimson-rgb));
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 2em 0;
+    color: var(--pure-white);
+}
+
+.note-bg p {
+    margin-bottom: 0.6em;
+}
+
+.note-bg p:last-child {
+    margin-bottom: 0;
+}
