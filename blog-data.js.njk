@@ -1,0 +1,7 @@
+---
+permalink: assets/js/blog-data.js
+---
+// /assets/js/blog-data.js (generado automáticamente por 11ty)
+var articulosDisco = {{ blogData.disco | mergeBlogData(collections.articlePosts, "disco") | json | safe }};
+
+var articulosEssencia = {{ blogData.essencia | mergeBlogData(collections.articlePosts, "essencia") | json | safe }};

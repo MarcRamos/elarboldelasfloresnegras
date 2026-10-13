@@ -1,150 +1,70 @@
-Aquí tienes el contenido para el `README.md` ampliado con instrucciones detalladas para generar nuevas entradas de blog usando el script Python y cómo se integran automáticamente en la web.
-
 # 🌑 El Árbol de las Flores Negras - Web y Blogs
 
-Web promocional de la trilogía de fantasía oscura *El Árbol de las Flores Negras*, con blogs integrados para seguir el progreso del **Disco de la Trilogía** y la nueva novela **La Quinta Essència**.
+Web promocional de la trilogía de fantasía oscura *El Árbol de las Flores Negras*, con blogs integrados para seguir el progreso del **Disco de la Trilogía** y el juego **La Quinta Essència**.
 
-## 🚀 Cómo añadir una nueva entrada al blog
+## 🏗️ Estructura del proyecto
 
-El proyecto incluye un script en Python que convierte archivos Markdown en páginas HTML completas y actualiza automáticamente el índice del blog.
+- `index.html` - Página principal con carrusel de libros
+- `blog/` - Blogs estáticos (disco y essencia)
+- `articles/` - Fuentes Markdown para las entradas del blog
+- `templates/` - Plantillas de 11ty para generar las entradas
+- `assets/` - CSS, JS, imágenes
+- `sw.js` - Service Worker
 
-### 1. Requisitos previos
+## 🚀 Desarrollo con 11ty
 
-- Python 3.10 o superior instalado.
-- Instalar la única dependencia externa (solo la primera vez):
-  ```bash
-  pip install markdown
-  ```
-- Tener los siguientes archivos en la raíz del proyecto:
-  - `tools/update_post.py` (el script generador)
-  - `/templates/article-template.html` (plantilla para las entradas)
-  - `/assets/js/blog-data.js` (índice de artículos, se actualizará automáticamente)
+El proyecto utiliza [Eleventy (11ty)](https://www.11ty.dev/) para generar las entradas del blog desde Markdown. También incluye scripts para generar y optimizar assets.
 
-### 2. Escribir el artículo en Markdown
+### Instalación
 
-Crea un archivo `.md` con el contenido del artículo. Debe incluir un bloque **front matter** al principio, delimitado por `---`, con al menos el título y la fecha:
+```bash
+npm install
+```
+
+### Comandos disponibles
+
+- `npm run build` - Genera el sitio en `_site/`
+- `npm run serve` - Inicia servidor de desarrollo con live reload
+- `npm start` - Igual que `serve`
+
+### Generar entradas de blog
+
+Las entradas se escriben en formato Markdown en la carpeta `articles/`. Cada archivo debe incluir front matter con título, fecha, categoría y blog.
 
 ```markdown
 ---
 title: "Mi nuevo artículo"
-date: 2026-05-20
+date: 2026-10-12
 category: Producción
+blog: esencia
 ---
 
-Aquí empieza el contenido del artículo en **Markdown**.
+Contenido del artículo...
 ```
 
-**Campos del front matter:**
-- `title`: obligatorio. Título del artículo.
-- `date`: obligatorio. Fecha en formato `YYYY-MM-DD`. Determina el mes/año en la URL y la posición en el blog.
-- `description`: opcional. Resumen breve para la meta description y la preview del artículo.
-- `category`: opcional. Se muestra en la etiqueta del artículo. Si no se indica, se usará "General".
+**Campos obligatorios:**
 
-### 3. Ejecutar el script
+- `title` - Título del artículo
+- `date` - Fecha en formato `YYYY-MM-DD`
+- `blog` - `disco` (castellano) o `essencia` (catalán)
+- `category` - Categoría del artículo
 
-Abre una terminal en la raíz del proyecto y lanza:
+**Campos opcionales:**
 
-```bash
-python tools/update_post.py ruta/al/articulo.md --blog <disco|essencia>
-```
+- `description` - Meta description para SEO
+- `lang` - Idioma (se infiere automáticamente desde el blog)
 
-**Ejemplos:**
+Las plantillas se encuentran en `templates/`:
 
-```bash
-# Para el blog del disco
-python tools/update_post.py articles/ideas-banda-sonora.md --blog disco
+- `article.njk` - Plantilla para entradas de blog
+- `base.njk` - Plantilla base HTML
+- `post.njk` - Plantilla para posts generados desde articles/
 
-# Para el blog de La Quinta Essència
-python tools/update_post.py articles/borrador-capitulo1.md --blog essencia
-```
+## 🛠️ Herramientas adicionales
 
-El argumento `--blog` es obligatorio y solo acepta `disco` o `essencia`. Si se usa otro valor, el script mostrará un error.
+- `tools/optimize-images.py` - Genera variantes WebP responsivas (480w, 768w, 1200w)
+- `tools/update_post.py` - Generador de posts (obsoleto tras migración a 11ty)
 
-### 4. Qué hace el script
+## 🚢 Despliegue
 
-- Convierte el contenido Markdown a HTML usando la plantilla `/templates/article-template.html`.
-- Genera un archivo HTML en la raíz con el siguiente formato de nombre:
-  ```
-  {blog}-{MM}-{YYYY}-{indice}.html
-  ```
-  Por ejemplo: `disco-05-2026-1.html` (primer artículo de mayo de 2026 en el blog del disco). Si ya existe otro artículo en el mismo mes y año, el índice se incrementa automáticamente.
-- La plantilla (`templates/article-template.html`) genera imágenes responsivas (`srcset`, WebP), carga asíncrona de CSS y etiquetas de meta description a partir del front matter.
-- Extrae un resumen del primer párrafo del artículo y lo guarda en `/assets/js/blog-data.js`.
-- Actualiza el archivo `/assets/js/blog-data.js` añadiendo la nueva entrada (título, fecha, URL, categoría y resumen) y lo ordena por fecha descendente.
-
-### 5. Resultado inmediato
-
-Al recargar la página del blog correspondiente (`/blog/disco/` o `/blog/essencia`) verás:
-
-- El nuevo artículo en la **lista principal** (tarjeta con título, fecha, categoría, resumen y botón "Leer más").
-- La entrada añadida en el **menú lateral de navegación**, dentro de su año y mes correspondiente, con un enlace directo al artículo completo.
-
-**No necesitas editar manualmente ningún HTML ni JavaScript.**
-
-### 6. Opciones adicionales
-
-- `--force`: Si el archivo HTML de destino ya existe, lo sobrescribe sin preguntar.
-  ```bash
-  python tools/update_post.py articles/articulo.md --blog disco --force
-  ```
-
-### 7. Solución de problemas comunes
-
-| Problema | Posible causa |
-|----------|---------------|
-| `Error: Debes instalar la biblioteca 'markdown'` | No has instalado la dependencia. Ejecuta `pip install markdown`. |
-| `Error: Falta el título en el front matter` | El archivo `.md` no tiene `title:` en el bloque delimitado por `---`. |
-| `Error: Formato de fecha inválido` | La fecha no está en formato `YYYY-MM-DD` o es una fecha imposible. |
-| El artículo no aparece en el blog | Revisa que el archivo `.md` esté bien formado y que estás ejecutando el script desde la raíz del proyecto. |
-| El archivo HTML ya existe y no se sobrescribe | Usa la opción `--force` o responde `s` cuando pregunte. |
-| El menú lateral no carga los artículos | Asegúrate de que los scripts se cargan en este orden: `/assets/js/blog-data.js`, `/assets/js/blog-manager.js`. |
-
----
-
-## 📁 Estructura del proyecto
-
-```
-raíz/
-├── index.html                      # Página principal de la trilogía
-├── README.md
-├── AGENTS.md                       # Convenciones del proyecto
-├── sw.js                           # Service worker (cacheo estático)
-├── favicon_io/                     # Favicons
-├── articles/                       # Artículos fuente en Markdown
-├── templates/
-│   └── article-template.html       # Plantilla para las entradas de blog
-├── tools/
-│   ├── update_post.py              # Script Python: Markdown → HTML
-│   └── optimize-images.py          # Genera variantes WebP responsivas
-├── assets/
-│   ├── css/
-│   │   ├── style.css               # CSS fuente (editar aquí)
-│   │   └── style.min.css           # CSS minificado (se sirve en producción)
-│   ├── js/
-│   │   ├── theme.js                # Toggle claro/oscuro/sistema
-│   │   ├── blog-data.js            # Datos de los artículos
-│   │   └── blog-manager.js         # Gestor de navegación y listado
-│   └── images/
-│       ├── portadas/               # Portadas de los libros
-│       │   ├── El-misterio-del-Bosque-Gris.webp
-│       │   ├── Las-sombras-del-mal.webp
-│       │   └── Ser-fuego-de-dragon.webp
-│       ├── blog/                   # Imágenes de los artículos
-│       └── general/                # Logos, fotos, fondos
-│           ├── logo_vkm.webp
-│           ├── marc+sj26.webp
-│           └── pexels-fir-trees-1835402.jpg
-└── blog/
-    ├── disco/
-    │   ├── index.html              # Página principal del blog
-    │   └── posts/                  # Artículos generados
-    │       ├── disco-05-2025-1.html
-    │       └── ...
-    └── essencia/
-        ├── index.html              # Página principal del blog
-        └── posts/
-            ├── essencia-03-2026-1.html
-            └── ...
-```
-
----
+El sitio es estático y se despliega en GitHub Pages. Ejecuta `npm run build` para generar `_site/` con todo el contenido.
