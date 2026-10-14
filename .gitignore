@@ -10,3 +10,22 @@ AGENTS.md
 *.exe
 node_modules/
 package*
+# Eleventy build output
+_site/
+@_site/
+
+# Dependencies
+node_modules/
+
+# Caches & tooling
+.eleventy-cache/
+.cache/
+*.log
+
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.local
