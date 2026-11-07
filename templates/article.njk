@@ -1,0 +1,19 @@
+---
+layout: base.njk
+---
+
+<article class="blog-article">
+    <div class="container">
+        <header class="article-header">
+            <span class="article-category">{{ category }}</span>
+            <h1 class="article-title">{{ title }}</h1>
+            <time class="article-date" datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+        </header>
+        <div class="article-content">
+            {{ content | safe }}
+        </div>
+        <footer class="article-footer">
+            <a href="{{ backLink or ('../../' ~ blog) }}" class="btn-back">← Volver al blog</a>
+        </footer>
+    </div>
+</article>

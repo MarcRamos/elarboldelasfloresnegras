@@ -1,15 +1,11 @@
 *Zone.Identifier
 *.pyc
-*.png
 opencode.json
 .opencode/
-articles/
 update_post.py
-templates/
 AGENTS.md
 *.exe
 node_modules/
-package*
 # Eleventy build output
 _site/
 @_site/
