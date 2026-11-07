@@ -1,4 +1,9 @@
-const CACHE = 'eafn-v1';
+---
+permalink: sw.js
+eleventyExcludeFromCollections: true
+---
+const CACHE = 'eafn-{{ buildId }}';
+
 const STATIC_ASSETS = [
   '/assets/css/style.min.css',
   '/assets/js/theme.js',

@@ -10,7 +10,9 @@ export default function(eleventyConfig) {
   eleventyConfig.ignores.add("package-lock.json");
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("favicon_io");
-  eleventyConfig.addPassthroughCopy("sw.js");
+  eleventyConfig.addGlobalData("buildId", () =>
+    (process.env.GITHUB_SHA || Date.now().toString(36)).slice(0, 8)
+  );
   eleventyConfig.addPassthroughCopy("index.html");
   eleventyConfig.addPassthroughCopy("blog/**/*.html");
   eleventyConfig.ignores.add("templates/**");
