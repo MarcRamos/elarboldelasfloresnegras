@@ -35,6 +35,12 @@ self.addEventListener('fetch', event => {
 
   const path = url.pathname;
 
+  // Blog data changes with every post: always ask the network first
+  if (path === '/assets/js/blog-data.js') {
+    event.respondWith(networkFirst(request));
+    return;
+  }
+
   if (/\.(css|js|webp|jpe?g|png|svg|ico|woff2?|ttf)$/i.test(path)) {
     event.respondWith(cacheFirst(request));
     return;
