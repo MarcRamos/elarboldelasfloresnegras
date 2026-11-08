@@ -35,7 +35,7 @@
         </div>
     </footer>
 
-    <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js').catch(()=>{})}</script>
+    <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js',{updateViaCache:'none'}).catch(()=>{})}</script>
     <script src="../../../assets/js/theme.js" defer></script>
     <script>document.addEventListener('DOMContentLoaded',function(){var e=document.getElementById('current-year');e&&(e.textContent=new Date().getFullYear())});</script>
 </body>
