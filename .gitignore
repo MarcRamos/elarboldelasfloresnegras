@@ -5,6 +5,7 @@ opencode.json
 update_post.py
 AGENTS.md
 *.exe
+*.png
 node_modules/
 # Eleventy build output
 _site/
